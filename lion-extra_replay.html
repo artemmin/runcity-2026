@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7ea25eaaa97447cfd10838e2187edec7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
+</head>
+<body>
+    
+    <div style="position:fixed;top:12px;left:60px;z-index:9999;background:#fff;padding:8px 14px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.25);font-family:sans-serif"><b style="font-size:15px">Бегущий Город 2026 — Лев-Экстра: повтор гонки</b><div style="font-size:12px;color:#555">1 команд с GPS · время московское · ▶ внизу слева</div></div>
+    
+            <div class="folium-map" id="map_7ea25eaaa97447cfd10838e2187edec7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7ea25eaaa97447cfd10838e2187edec7 = L.map(
+                "map_7ea25eaaa97447cfd10838e2187edec7",
+                {
+                    center: [59.91518765508022, 30.29041442513369],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_7ea25eaaa97447cfd10838e2187edec7);
+
+            
+
+        
+    
+            var tile_layer_0953848de8a5a3b1c55cf76cf3db97c2 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 16,
+  "maxNativeZoom": 16,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Esri, DeLorme, NAVTEQ",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0953848de8a5a3b1c55cf76cf3db97c2.addTo(map_7ea25eaaa97447cfd10838e2187edec7);
+        
+    
+            var tile_layer_0b2f39cd8aaf2bd89fb3aeea621cd48c = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            var tile_layer_5113da107edf33df733dc92817d9e7d6 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            var feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_ed7f65843f81c45f04376ccc42316a26 = L.marker(
+                [59.900903, 30.274546],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var icon_d91ed8f67b42121d6880f63bf73f76a5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5098ea216fdd7bfe98b55ec2a621fcb = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_f63717a38e2429564d511cd4b92c7ab7 = $(`<div id="html_f63717a38e2429564d511cd4b92c7ab7" style="width: 100.0%; height: 100.0%;"><b>КП 401</b> · Старт<br>Участок около наземного вестибюля ст. м. Нарвская</div>`)[0];
+                popup_c5098ea216fdd7bfe98b55ec2a621fcb.setContent(html_f63717a38e2429564d511cd4b92c7ab7);
+            
+        
+
+        marker_ed7f65843f81c45f04376ccc42316a26.bindPopup(popup_c5098ea216fdd7bfe98b55ec2a621fcb)
+        ;
+
+        
+    
+    
+            marker_ed7f65843f81c45f04376ccc42316a26.bindTooltip(
+                `<div>
+                     Старт · КП 401
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ed7f65843f81c45f04376ccc42316a26.setIcon(icon_d91ed8f67b42121d6880f63bf73f76a5);
+            
+    
+            var circle_marker_fe8fb53d5ab1f2da9219cccf7b06ff9c = L.circleMarker(
+                [59.895117, 30.26414],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#39a258ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_71c122ae7d7a3c13208cd7e150b94780 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_f33ebadfd7430d013b2a839c9c1c56d3 = $(`<div id="html_f33ebadfd7430d013b2a839c9c1c56d3" style="width: 100.0%; height: 100.0%;"><b>КП 704</b> · Этап 1<br>Загадка<br><i>См. картинки. Эти произведения заняли бы ключевое место в антологии загаданного автора. А вам нужна улица его однофамильца, дом 16. Здание во дворе за указанным. Стена, параллельная указанному зданию</i><br><b>Задание:</b> Количество окон в цветных &quot;рамках&quot; на 1-2 этажах<br><details><summary>Правильный ответ</summary><b>3</b></details><br>Взяли: <b>94/101</b> (93%)<br>Не взяли: X497, X4111, X4103, X458, X4119, X4105, X4122</div>`)[0];
+                popup_71c122ae7d7a3c13208cd7e150b94780.setContent(html_f33ebadfd7430d013b2a839c9c1c56d3);
+            
+        
+
+        circle_marker_fe8fb53d5ab1f2da9219cccf7b06ff9c.bindPopup(popup_71c122ae7d7a3c13208cd7e150b94780)
+        ;
+
+        
+    
+    
+            circle_marker_fe8fb53d5ab1f2da9219cccf7b06ff9c.bindTooltip(
+                `<div>
+                     КП 704: 93%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_fbfc6b17dbb008348953ae872b5621ea = L.marker(
+                [59.895117, 30.26414],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_d7e05f8051e8fd27efbe66474b1861ca = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e704\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_fbfc6b17dbb008348953ae872b5621ea.setIcon(div_icon_d7e05f8051e8fd27efbe66474b1861ca);
+            
+    
+            var circle_marker_0cca32cb270bbf061abe6f2620681f74 = L.circleMarker(
+                [59.89704, 30.271013],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#279c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_a60bdd24f7710eeffea548f41de6b55c = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_e3bd37690140e665059bceaa3bac8f9b = $(`<div id="html_e3bd37690140e665059bceaa3bac8f9b" style="width: 100.0%; height: 100.0%;"><b>КП 706</b> · Этап 1<br>Загадка<br><i>См. картинку. Считается, что ему не покорилась только одна мужская партия. Найдите улицу однофамильца человека, которому эта партия удалась. Дом 8. Фасад, выходящий на улицу</i><br><b>Задание:</b> Количество синих табличек &quot;Водоканала&quot;<br><details><summary>Правильный ответ</summary><b>2</b></details><br>Взяли: <b>98/101</b> (97%)<br>Не взяли: X464, X470, X4121</div>`)[0];
+                popup_a60bdd24f7710eeffea548f41de6b55c.setContent(html_e3bd37690140e665059bceaa3bac8f9b);
+            
+        
+
+        circle_marker_0cca32cb270bbf061abe6f2620681f74.bindPopup(popup_a60bdd24f7710eeffea548f41de6b55c)
+        ;
+
+        
+    
+    
+            circle_marker_0cca32cb270bbf061abe6f2620681f74.bindTooltip(
+                `<div>
+                     КП 706: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c438422a162fb28d5517ee21fcd1d138 = L.marker(
+                [59.89704, 30.271013],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_488029bdf3c83009d031956ab59c3eeb = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e706\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_c438422a162fb28d5517ee21fcd1d138.setIcon(div_icon_488029bdf3c83009d031956ab59c3eeb);
+            
+    
+            var circle_marker_df911afe0b27221de4d7c67d5e61abb0 = L.circleMarker(
+                [59.894967, 30.265932],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#279c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_523261a3471e62349f1c7fb891f74d86 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_1adaebdb46697d82b391c91ef893e882 = $(`<div id="html_1adaebdb46697d82b391c91ef893e882" style="width: 100.0%; height: 100.0%;"><b>КП 707</b> · Этап 1<br>Загадка<br><i>В основу произведения лёгкого жанра на тяжёлую тему легла одноимённая композиция в размере 3/4. А произведение, в свою очередь, стало для отечественной музыкальной сцены глотком свежего морского воздуха. Первое слово названия произведения подскажет вам улицу. Здание напротив дома 11. Торец здания. Граффити со стихотворением</i><br><b>Задание:</b> Что для птенцов?<br><details><summary>Правильный ответ</summary><b>мох</b></details><br>Взяли: <b>98/101</b> (97%)<br>Не взяли: X4119, X4124, X4122</div>`)[0];
+                popup_523261a3471e62349f1c7fb891f74d86.setContent(html_1adaebdb46697d82b391c91ef893e882);
+            
+        
+
+        circle_marker_df911afe0b27221de4d7c67d5e61abb0.bindPopup(popup_523261a3471e62349f1c7fb891f74d86)
+        ;
+
+        
+    
+    
+            circle_marker_df911afe0b27221de4d7c67d5e61abb0.bindTooltip(
+                `<div>
+                     КП 707: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c0e16d0aedaef892b0050299e5e6d0b3 = L.marker(
+                [59.894967, 30.265932],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_e338be91ffa01ee0105ceb8cc110b84d = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e707\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_c0e16d0aedaef892b0050299e5e6d0b3.setIcon(div_icon_e338be91ffa01ee0105ceb8cc110b84d);
+            
+    
+            var circle_marker_4d2b69179ec76cca6af34af2dab171d3 = L.circleMarker(
+                [59.898757, 30.280456],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#309f56ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_1b6b1018b190d1dcdab922f870eb0db0 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_1152dc51897e58ec9a01ae396a8e575e = $(`<div id="html_1152dc51897e58ec9a01ae396a8e575e" style="width: 100.0%; height: 100.0%;"><b>КП 715</b> · Этап 1<br>Загадка<br><i>См. картинку. Ряд мог бы дополнить появившийся на свет чуть больше века назад. Именно в связи с этим появлением получила своё название улица. Дом 7 по этой улице. Лестница №3</i><br><b>Задание:</b> Согласно данным таблички у входа, квартира с каким номером отсутствует?<br><details><summary>Правильный ответ</summary><b>14</b></details><br>Взяли: <b>96/101</b> (95%)<br>Не взяли: X4119, X466, X4121, X465, X4122</div>`)[0];
+                popup_1b6b1018b190d1dcdab922f870eb0db0.setContent(html_1152dc51897e58ec9a01ae396a8e575e);
+            
+        
+
+        circle_marker_4d2b69179ec76cca6af34af2dab171d3.bindPopup(popup_1b6b1018b190d1dcdab922f870eb0db0)
+        ;
+
+        
+    
+    
+            circle_marker_4d2b69179ec76cca6af34af2dab171d3.bindTooltip(
+                `<div>
+                     КП 715: 95%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b2ae0519f7d866e92c5aebf8d37145e4 = L.marker(
+                [59.898757, 30.280456],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_c69044cd809358632b3d9ca7400383d3 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e715\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_b2ae0519f7d866e92c5aebf8d37145e4.setIcon(div_icon_c69044cd809358632b3d9ca7400383d3);
+            
+    
+            var circle_marker_bfc8c347cd8a856f6ed7fdd6dfdc4021 = L.circleMarker(
+                [59.903137, 30.274429],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#67b064ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_b0052e56e66927635ac36293b887e0d0 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_8ea7990dc511743c3f493d2c2d053303 = $(`<div id="html_8ea7990dc511743c3f493d2c2d053303" style="width: 100.0%; height: 100.0%;"><b>КП 721</b> · Этап 1<br>Загадка<br><i>— Пока мы с вами обсуждаем ЕЁ, меня в соседнем чате спрашивают, кто из нас будет собирать букет и кому дарить.\n— О, хватай велосипед, есть загадка!\nДом 18 &quot;по НЕЙ&quot;. Пиксель-арт у подворотни</i><br><b>Задание:</b> Количество квадратиков верхнего уровня пиксель-арта<br><details><summary>Правильный ответ</summary><b>3</b></details><br>Взяли: <b>84/101</b> (83%)<br>Не взяли: X449, X424, X461, X462, X415, X408, X4103, X451, X466, X4105, X434, X491, X4116, X4121, X465, X4134, X4122</div>`)[0];
+                popup_b0052e56e66927635ac36293b887e0d0.setContent(html_8ea7990dc511743c3f493d2c2d053303);
+            
+        
+
+        circle_marker_bfc8c347cd8a856f6ed7fdd6dfdc4021.bindPopup(popup_b0052e56e66927635ac36293b887e0d0)
+        ;
+
+        
+    
+    
+            circle_marker_bfc8c347cd8a856f6ed7fdd6dfdc4021.bindTooltip(
+                `<div>
+                     КП 721: 83%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_397dec4bdfe9a339e2cc2999bc39badf = L.marker(
+                [59.903137, 30.274429],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_85376bb1bd6f5a8f2f40f0d3c8e930b9 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e721\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_397dec4bdfe9a339e2cc2999bc39badf.setIcon(div_icon_85376bb1bd6f5a8f2f40f0d3c8e930b9);
+            
+    
+            var circle_marker_159ee37ce51bf02ff520e0349009de8a = L.circleMarker(
+                [59.904697, 30.287509],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1e9a51ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_5988f4739cfd574a1441681aa3c81765 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_6f9b1458ef5c4a4ab782b080ab6a8cef = $(`<div id="html_6f9b1458ef5c4a4ab782b080ab6a8cef" style="width: 100.0%; height: 100.0%;"><b>КП 735</b> · Этап 1<br>Загадка<br><i>См. картинку. Скомпилировали мы такую. А настоящая улица названа не в его честь. Дом 33 по настоящей. Фасад, выходящий на улицу</i><br><b>Задание:</b> Количество спутниковых тарелок<br><details><summary>Правильный ответ</summary><b>10</b></details><br>Взяли: <b>100/101</b> (99%)<br>Не взяли: X4122</div>`)[0];
+                popup_5988f4739cfd574a1441681aa3c81765.setContent(html_6f9b1458ef5c4a4ab782b080ab6a8cef);
+            
+        
+
+        circle_marker_159ee37ce51bf02ff520e0349009de8a.bindPopup(popup_5988f4739cfd574a1441681aa3c81765)
+        ;
+
+        
+    
+    
+            circle_marker_159ee37ce51bf02ff520e0349009de8a.bindTooltip(
+                `<div>
+                     КП 735: 99%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_02c8a25b61f71e7f2f396c0d8884de3d = L.marker(
+                [59.904697, 30.287509],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_b13226e22684e0fc6a71f0f898f0ac4b = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e735\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_02c8a25b61f71e7f2f396c0d8884de3d.setIcon(div_icon_b13226e22684e0fc6a71f0f898f0ac4b);
+            
+    
+            var circle_marker_7c3f5f32952cf99649d4d80b98966295 = L.circleMarker(
+                [59.907758966306, 30.298729832721],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#239b52ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_e2255a4e6d77d57b7157a5295903c6cf = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_187c748d1e81a726727275b0159e6b41 = $(`<div id="html_187c748d1e81a726727275b0159e6b41" style="width: 100.0%; height: 100.0%;"><b>КП 768</b> · Этап 1<br>Загадка<br><i>См. изображения. В Петербурге подобный топоним тоже есть. Зелёная зона на ней. Столб с запрещающим знаком рядом с противопарковочными полусферами</i><br><b>Задание:</b> Слово на одной из табличек<br><details><summary>Правильный ответ</summary><b>кроме; 4</b></details><br>Взяли: <b>99/101</b> (98%)<br>Не взяли: X461, X466</div>`)[0];
+                popup_e2255a4e6d77d57b7157a5295903c6cf.setContent(html_187c748d1e81a726727275b0159e6b41);
+            
+        
+
+        circle_marker_7c3f5f32952cf99649d4d80b98966295.bindPopup(popup_e2255a4e6d77d57b7157a5295903c6cf)
+        ;
+
+        
+    
+    
+            circle_marker_7c3f5f32952cf99649d4d80b98966295.bindTooltip(
+                `<div>
+                     КП 768: 98%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0843f90ee4461f40d8fcc7e6f00167a6 = L.marker(
+                [59.907758966306, 30.298729832721],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_a8f83ef212483a14b1f5ab4beb47521c = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e768\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_0843f90ee4461f40d8fcc7e6f00167a6.setIcon(div_icon_a8f83ef212483a14b1f5ab4beb47521c);
+            
+    
+            var circle_marker_ff908cfd7cd25e21e494366e2f1326a2 = L.circleMarker(
+                [59.911661, 30.310198],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1e9a51ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_3f95cc173f3ab6a20a7860908d618413 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_fffcca5875b50802c91997a875c7bd1d = $(`<div id="html_fffcca5875b50802c91997a875c7bd1d" style="width: 100.0%; height: 100.0%;"><b>КП 702</b> · Этап 2<br>Загадка<br><i>8 ≈ 9\n9 &lt; 10\n10 &gt; 11\nРазобравшись в этой нехитрой арифметике, идите к 7.23. Технический шкаф с афишами на нём. Верхняя афиша</i><br><b>Задание:</b> Как зовут исполнителя?<br><details><summary>Правильный ответ</summary><b>ПОЛКА</b></details><br>Взяли: <b>100/101</b> (99%)<br>Не взяли: X472</div>`)[0];
+                popup_3f95cc173f3ab6a20a7860908d618413.setContent(html_fffcca5875b50802c91997a875c7bd1d);
+            
+        
+
+        circle_marker_ff908cfd7cd25e21e494366e2f1326a2.bindPopup(popup_3f95cc173f3ab6a20a7860908d618413)
+        ;
+
+        
+    
+    
+            circle_marker_ff908cfd7cd25e21e494366e2f1326a2.bindTooltip(
+                `<div>
+                     КП 702: 99%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_96ee8d796a687469f57463fff156015d = L.marker(
+                [59.911661, 30.310198],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_0776a27b47340eb524f2028527714bf2 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e702\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_96ee8d796a687469f57463fff156015d.setIcon(div_icon_0776a27b47340eb524f2028527714bf2);
+            
+    
+            var circle_marker_197122a99e7ab2a5c5b975031c5fe5af = L.circleMarker(
+                [59.909952, 30.314443],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c9e55ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_29ec4b88448a4ee74002a60f4cf77fec = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_0e9745b6a58e77b3eb86040a47f48cc7 = $(`<div id="html_0e9745b6a58e77b3eb86040a47f48cc7" style="width: 100.0%; height: 100.0%;"><b>КП 724</b> · Этап 2<br>Загадка<br><i>На гербе есть оружие и побеждённое существо, зато на всадника – лишь намёк. Хотя город в честь него и назван. Название этого города подскажет улицу. Дом 28</i><br><b>Задание:</b> Сделайте селфи всей команды на фоне адресной таблички<br><details><summary>Правильный ответ</summary><b>Kragel Park; селфи</b></details><br>Взяли: <b>97/101</b> (96%)<br>Не взяли: X4119, X4121, X4122, X472</div>`)[0];
+                popup_29ec4b88448a4ee74002a60f4cf77fec.setContent(html_0e9745b6a58e77b3eb86040a47f48cc7);
+            
+        
+
+        circle_marker_197122a99e7ab2a5c5b975031c5fe5af.bindPopup(popup_29ec4b88448a4ee74002a60f4cf77fec)
+        ;
+
+        
+    
+    
+            circle_marker_197122a99e7ab2a5c5b975031c5fe5af.bindTooltip(
+                `<div>
+                     КП 724: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8cbc2396e482dfe975f15e825463495e = L.marker(
+                [59.909952, 30.314443],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_d695237a0034ef6d48b45b8022fb5b26 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e724\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_8cbc2396e482dfe975f15e825463495e.setIcon(div_icon_d695237a0034ef6d48b45b8022fb5b26);
+            
+    
+            var circle_marker_26ae6e75b493aea929cdfbee47f47951 = L.circleMarker(
+                [59.912494, 30.315392],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#309f56ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_14d84d6732138a27c1a92c3117a7de63 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_e82b008aa4ad2aff9f5b2b7d91f6944b = $(`<div id="html_e82b008aa4ad2aff9f5b2b7d91f6944b" style="width: 100.0%; height: 100.0%;"><b>КП 744</b> · Этап 2<br>Загадка<br><i>См. картинку. Разновысотный дом через дорогу. Табличка на двери, разделённая на две части</i><br><b>Задание:</b> Первое слово правой части таблички<br><details><summary>Правильный ответ</summary><b>Mars</b></details><br>Взяли: <b>96/101</b> (95%)<br>Не взяли: X416, X452, X491, X465, X472</div>`)[0];
+                popup_14d84d6732138a27c1a92c3117a7de63.setContent(html_e82b008aa4ad2aff9f5b2b7d91f6944b);
+            
+        
+
+        circle_marker_26ae6e75b493aea929cdfbee47f47951.bindPopup(popup_14d84d6732138a27c1a92c3117a7de63)
+        ;
+
+        
+    
+    
+            circle_marker_26ae6e75b493aea929cdfbee47f47951.bindTooltip(
+                `<div>
+                     КП 744: 95%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5e5ee6b325495f6573053c85f5655789 = L.marker(
+                [59.912494, 30.315392],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_91909281b45c3b027e4bc5e9bd9bfbb5 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e744\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_5e5ee6b325495f6573053c85f5655789.setIcon(div_icon_91909281b45c3b027e4bc5e9bd9bfbb5);
+            
+    
+            var circle_marker_3e38f18f072d5b8979779762aa869d28 = L.circleMarker(
+                [59.913844, 30.309373],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62af63ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_de35b58fe2d465f018b5fbe57ae513f7 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_fa99ef92bf05b7f1f75998b82dd9442a = $(`<div id="html_fa99ef92bf05b7f1f75998b82dd9442a" style="width: 100.0%; height: 100.0%;"><b>КП 745</b> · Этап 2<br>Загадка<br><i>Они бдят, например, на Восстания, на Большом и Малом проспектах Петроградской стороны, на Университетской набережной... Две даже «обитают» в Летнем саду. А вот их антипод мы в городе нашли всего один, и то не буквальный. Зато конкретный, если верить произведению середины прошлого века. Здание за этим &quot;антиподом&quot;. Табличка Комитета справа от касс.</i><br><b>Задание:</b> Прилагательное с заглавной буквы, образованное не от названия города<br><details><summary>Правильный ответ</summary><b>Драматический</b></details><br>Взяли: <b>85/101</b> (84%)<br>Не взяли: X488, X464, X437, X418, X432, X457, X408, X458, X4123, X405, X466, X4116, X4122, X472, X4113, X4107</div>`)[0];
+                popup_de35b58fe2d465f018b5fbe57ae513f7.setContent(html_fa99ef92bf05b7f1f75998b82dd9442a);
+            
+        
+
+        circle_marker_3e38f18f072d5b8979779762aa869d28.bindPopup(popup_de35b58fe2d465f018b5fbe57ae513f7)
+        ;
+
+        
+    
+    
+            circle_marker_3e38f18f072d5b8979779762aa869d28.bindTooltip(
+                `<div>
+                     КП 745: 84%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9dc28ff82cdf6a961e8566ae1c7a8eeb = L.marker(
+                [59.913844, 30.309373],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_f829bd9c929d40c925fa051684a1aa7d = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e745\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_9dc28ff82cdf6a961e8566ae1c7a8eeb.setIcon(div_icon_f829bd9c929d40c925fa051684a1aa7d);
+            
+    
+            var circle_marker_982daaa5205e8d234dbb73e44de670ab = L.circleMarker(
+                [59.919077966306, 30.312784844941],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#239b52ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_93baab0ef447298944069ebdc740df1b = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_2dd18d2bb056a1f98cf8928d91607d4f = $(`<div id="html_2dd18d2bb056a1f98cf8928d91607d4f" style="width: 100.0%; height: 100.0%;"><b>КП 761</b> · Этап 2<br>Загадка<br><i>См. картинку. Часть подобных конструкций использовалась повторно. Найдите в Петербурге их театрального родственника. Клумба перед входом в здание. Зеркало рядом с клумбой</i><br><b>Задание:</b> Слово на букву &quot;Л&quot;<br><details><summary>Правильный ответ</summary><b>лучший</b></details><br>Взяли: <b>99/101</b> (98%)<br>Не взяли: X473, X4122</div>`)[0];
+                popup_93baab0ef447298944069ebdc740df1b.setContent(html_2dd18d2bb056a1f98cf8928d91607d4f);
+            
+        
+
+        circle_marker_982daaa5205e8d234dbb73e44de670ab.bindPopup(popup_93baab0ef447298944069ebdc740df1b)
+        ;
+
+        
+    
+    
+            circle_marker_982daaa5205e8d234dbb73e44de670ab.bindTooltip(
+                `<div>
+                     КП 761: 98%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_07771a059ad3b0771ba77fd13f836d30 = L.marker(
+                [59.919077966306, 30.312784844941],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_f27c18877a712fdae0c614f2acc41ce1 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e761\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_07771a059ad3b0771ba77fd13f836d30.setIcon(div_icon_f27c18877a712fdae0c614f2acc41ce1);
+            
+    
+            var circle_marker_0ddd1871e2594332be9e3580e0ccafe7 = L.circleMarker(
+                [59.933169, 30.301433],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a2c373ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_9992c4a8cc0ec997bd8b35bb432d4d5c = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_8cab4250004b46a93ae2935f5cd57890 = $(`<div id="html_8cab4250004b46a93ae2935f5cd57890" style="width: 100.0%; height: 100.0%;"><b>КП 723</b> · Этап 3<br>Загадка<br><i>Священнику и писателю Франтишеку не хватало одной. Ватерполист Неманья до сих пор вынужден жить без двух. А известен вам наверняка тот, у которого и сейчас всё на месте. Но вы отправляйтесь всё же на улицу того, кому всего хватало столетия назад. Дом 10. Табличка на стене над велопарковкой</i><br><b>Задание:</b> Имя художника<br><details><summary>Правильный ответ</summary><b>Вильгений</b></details><br>Взяли: <b>71/101</b> (70%)<br>Не взяли: X441, X467, X479, X4127, X413, X446, X4111, X476, X416, X461, X432, X457, X452, X408, X4103, X458, X4119, X4123, X405, X451 … +10</div>`)[0];
+                popup_9992c4a8cc0ec997bd8b35bb432d4d5c.setContent(html_8cab4250004b46a93ae2935f5cd57890);
+            
+        
+
+        circle_marker_0ddd1871e2594332be9e3580e0ccafe7.bindPopup(popup_9992c4a8cc0ec997bd8b35bb432d4d5c)
+        ;
+
+        
+    
+    
+            circle_marker_0ddd1871e2594332be9e3580e0ccafe7.bindTooltip(
+                `<div>
+                     КП 723: 70%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f3d9bcd7c16f9a5dd5fa56b3391a3d85 = L.marker(
+                [59.933169, 30.301433],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_b95b057d9c1639d0bfc78d9667a512bd = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e723\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_f3d9bcd7c16f9a5dd5fa56b3391a3d85.setIcon(div_icon_b95b057d9c1639d0bfc78d9667a512bd);
+            
+    
+            var circle_marker_6401072080ec058a02b2a55f13ff5272 = L.circleMarker(
+                [59.92887, 30.302339],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7db86aff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_be6fbd60853f11fbf7b0444c73408369 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_ca4d9db728858f6bc0c9f7b0dad6ce75 = $(`<div id="html_ca4d9db728858f6bc0c9f7b0dad6ce75" style="width: 100.0%; height: 100.0%;"><b>КП 742</b> · Этап 3<br>Загадка<br><i>Проблема главного героя необъяснимо решилась сама собой – через некоторое время после возвращения заглавного. Спустя несколько лет такую же проблему решили и в реальности – впервые в стране. Занятно, что страдал от неё коллега персонажа, первым опознавшего заглавного героя. Вам же нужен дом 12 по “решившему проблему”. Торец дома справа от адресной таблички. Портрет</i><br><b>Задание:</b> Фамилия, написанная чёрным цветом<br><details><summary>Правильный ответ</summary><b>Достоевский</b></details><br>Взяли: <b>79/101</b> (78%)<br>Не взяли: X460, X476, X426, X437, X432, X457, X408, X405, X466, X4105, X4118, X491, X429, X4116, X4121, X465, X4137, X4134, X4122, X472 … +2</div>`)[0];
+                popup_be6fbd60853f11fbf7b0444c73408369.setContent(html_ca4d9db728858f6bc0c9f7b0dad6ce75);
+            
+        
+
+        circle_marker_6401072080ec058a02b2a55f13ff5272.bindPopup(popup_be6fbd60853f11fbf7b0444c73408369)
+        ;
+
+        
+    
+    
+            circle_marker_6401072080ec058a02b2a55f13ff5272.bindTooltip(
+                `<div>
+                     КП 742: 78%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_025619ddd4d3d9ce364e2d6b038860a2 = L.marker(
+                [59.92887, 30.302339],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_18514f0dbdb108a292f5ce45c6d1416c = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e742\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_025619ddd4d3d9ce364e2d6b038860a2.setIcon(div_icon_18514f0dbdb108a292f5ce45c6d1416c);
+            
+    
+            var circle_marker_366ca8dbc529871642bde02da761d987 = L.circleMarker(
+                [59.92391, 30.300579],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#35a157ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_80668dd76ae878d26de01d649d078645 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_f5d469104ffadb8c220024faa6c14018 = $(`<div id="html_f5d469104ffadb8c220024faa6c14018" style="width: 100.0%; height: 100.0%;"><b>КП 743</b> · Этап 3<br>Загадка<br><i>См. картинку. По-русски произведение называется двумя словами, а по-английски — нашлось вот это. Дом 33 по автору произведения, которое мы искали на самом деле. Табличка с QR-кодом, располагающаяся под адресной</i><br><b>Задание:</b> Четырехзначное число в ссылке<br><details><summary>Правильный ответ</summary><b>2612</b></details><br>Взяли: <b>95/101</b> (94%)<br>Не взяли: X405, X491, X4137, X4134, X4122, X472</div>`)[0];
+                popup_80668dd76ae878d26de01d649d078645.setContent(html_f5d469104ffadb8c220024faa6c14018);
+            
+        
+
+        circle_marker_366ca8dbc529871642bde02da761d987.bindPopup(popup_80668dd76ae878d26de01d649d078645)
+        ;
+
+        
+    
+    
+            circle_marker_366ca8dbc529871642bde02da761d987.bindTooltip(
+                `<div>
+                     КП 743: 94%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bf883890eace6573caffa52786196e00 = L.marker(
+                [59.92391, 30.300579],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_2b5adefc10ac666b2a6580fbfee62e98 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e743\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_bf883890eace6573caffa52786196e00.setIcon(div_icon_2b5adefc10ac666b2a6580fbfee62e98);
+            
+    
+            var circle_marker_aa2e591da8e86bdbf774322169b76039 = L.circleMarker(
+                [59.919979, 30.305372],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4ba85dff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_e5e41ae1dc6907f99e1b88a0121dd0db = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_2741ceae3a3c2d81b07dfe506b889a08 = $(`<div id="html_2741ceae3a3c2d81b07dfe506b889a08" style="width: 100.0%; height: 100.0%;"><b>КП 772</b> · Этап 3<br>Загадка<br><i>См. картинку. То, что не так на современном снимке, для другого объекта было неотъемлемой характеристикой. Ближайший к месту, где была северная оконечность этого объекта, не угловой дом с двузначным чётным номером. Третье окно справа от подворотни (если стоять к ней лицом)</i><br><b>Задание:</b> Год основания<br><details><summary>Правильный ответ</summary><b>1902</b></details><br>Взяли: <b>90/101</b> (89%)<br>Не взяли: X488, X452, X405, X451, X4105, X434, X465, X4137, X4134, X4122, X472</div>`)[0];
+                popup_e5e41ae1dc6907f99e1b88a0121dd0db.setContent(html_2741ceae3a3c2d81b07dfe506b889a08);
+            
+        
+
+        circle_marker_aa2e591da8e86bdbf774322169b76039.bindPopup(popup_e5e41ae1dc6907f99e1b88a0121dd0db)
+        ;
+
+        
+    
+    
+            circle_marker_aa2e591da8e86bdbf774322169b76039.bindTooltip(
+                `<div>
+                     КП 772: 89%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9c14521bf1cdc299cd17cc89aa345f31 = L.marker(
+                [59.919979, 30.305372],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_ac3d63232bf9dae1be750cd24da084f8 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e772\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_9c14521bf1cdc299cd17cc89aa345f31.setIcon(div_icon_ac3d63232bf9dae1be750cd24da084f8);
+            
+    
+            var circle_marker_7eddcd30e1a3b75443c17bc623a28290 = L.circleMarker(
+                [59.931498966306, 30.292450858363],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4ba85dff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_5359dfe9b11863c2b133190d04ce0299 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_a3ef19e829001993286ca4c7d56c1f3e = $(`<div id="html_a3ef19e829001993286ca4c7d56c1f3e" style="width: 100.0%; height: 100.0%;"><b>КП 749</b> · Этап 3<br>Загадка<br><i>Лирический герой петербургского поэта с собой &quot;ладил&quot;, но &quot;не всегда&quot;. А поэт с этим фактом срифмовал аж два соседних объекта. Неподалёку от места их встречи вам — вниз. Магазин сувениров. Изображения маяков, размещенные на стенах по внешнему периметру магазина. Задний створный знак БКР</i><br><b>Задание:</b> Сумма цифр в написанных координатах<br><details><summary>Правильный ответ</summary><b>63</b></details><br>Взяли: <b>90/101</b> (89%)<br>Не взяли: X424, X446, X433, X466, X429, X4124, X465, X4137, X4134, X4122, X472</div>`)[0];
+                popup_5359dfe9b11863c2b133190d04ce0299.setContent(html_a3ef19e829001993286ca4c7d56c1f3e);
+            
+        
+
+        circle_marker_7eddcd30e1a3b75443c17bc623a28290.bindPopup(popup_5359dfe9b11863c2b133190d04ce0299)
+        ;
+
+        
+    
+    
+            circle_marker_7eddcd30e1a3b75443c17bc623a28290.bindTooltip(
+                `<div>
+                     КП 749: 89%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_16d7ec72732cf367ec2e777825c29eb8 = L.marker(
+                [59.931498966306, 30.292450858363],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_efa769a57ba86cb3e10231720fe980ed = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e749\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_16d7ec72732cf367ec2e777825c29eb8.setIcon(div_icon_efa769a57ba86cb3e10231720fe980ed);
+            
+    
+            var circle_marker_595a4fbc9655e3beb5ee5ed85f3aac42 = L.circleMarker(
+                [59.919293, 30.280013],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94bf6fff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_6b71bae241608e21cd907b347a491725 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_19262214343257326251ce8b503e3f67 = $(`<div id="html_19262214343257326251ce8b503e3f67" style="width: 100.0%; height: 100.0%;"><b>КП 725</b> · Этап 4<br>Загадка<br><i>Например, две почти параллельные улицы неподалёку от «Звенигородской» с загаданной сочетать можно. А вот улицу, проходящую от Межевого до Двинской — не факт, тут от цвета зависит. Дом 11 по загаданной. Сквер через дорогу от дома. Стенд с правилами эксплуатации</i><br><b>Задание:</b> Название развивающего элемента с наибольшим количеством букв<br><details><summary>Правильный ответ</summary><b>Головоломка</b></details><br>Взяли: <b>74/101</b> (73%)<br>Не взяли: X428, X456, X460, X4129, X416, X462, X480, X418, X433, X4103, X458, X451, X486, X4118, X434, X491, X429, X4116, X4121, X4124 … +7</div>`)[0];
+                popup_6b71bae241608e21cd907b347a491725.setContent(html_19262214343257326251ce8b503e3f67);
+            
+        
+
+        circle_marker_595a4fbc9655e3beb5ee5ed85f3aac42.bindPopup(popup_6b71bae241608e21cd907b347a491725)
+        ;
+
+        
+    
+    
+            circle_marker_595a4fbc9655e3beb5ee5ed85f3aac42.bindTooltip(
+                `<div>
+                     КП 725: 73%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ea28cc98694dbccc73ee87e10505157b = L.marker(
+                [59.919293, 30.280013],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_9973481a7029aa7da7ae67d600f2efc9 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e725\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_ea28cc98694dbccc73ee87e10505157b.setIcon(div_icon_9973481a7029aa7da7ae67d600f2efc9);
+            
+    
+            var circle_marker_3ce7337d3317628d17a3b276b0b8ca36 = L.circleMarker(
+                [59.925205, 30.280116],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#67b064ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_aab7573e1e8d4e850ea551711e8eb023 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_e69e2a173fa89a30bcea49830251bbda = $(`<div id="html_e69e2a173fa89a30bcea49830251bbda" style="width: 100.0%; height: 100.0%;"><b>КП 730</b> · Этап 4<br>Загадка<br><i>См. картинку. Леонид Филатов обозначил его после этого значения x. Примерно в 45 метрах к северу от начала улицы этого значения есть синий забор. Небольшая скульптурная композиция на скамейке через дорогу от этого забора. Табличка</i><br><b>Задание:</b> Разность чисел в последней строке<br><details><summary>Правильный ответ</summary><b>67</b></details><br>Взяли: <b>84/101</b> (83%)<br>Не взяли: X445, X433, X405, X451, X4118, X434, X491, X429, X4116, X4124, X465, X4137, X4134, X4122, X472, X4113, X4107</div>`)[0];
+                popup_aab7573e1e8d4e850ea551711e8eb023.setContent(html_e69e2a173fa89a30bcea49830251bbda);
+            
+        
+
+        circle_marker_3ce7337d3317628d17a3b276b0b8ca36.bindPopup(popup_aab7573e1e8d4e850ea551711e8eb023)
+        ;
+
+        
+    
+    
+            circle_marker_3ce7337d3317628d17a3b276b0b8ca36.bindTooltip(
+                `<div>
+                     КП 730: 83%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a2211db1bc2ecd2d2662a84e1c7a006d = L.marker(
+                [59.925205, 30.280116],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_d8bc32e25ea78ba6693f73165af2cd5d = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e730\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_a2211db1bc2ecd2d2662a84e1c7a006d.setIcon(div_icon_d8bc32e25ea78ba6693f73165af2cd5d);
+            
+    
+            var circle_marker_44ac69ef4351cf733fec2f2c0dd30aa4 = L.circleMarker(
+                [59.93142, 30.288137],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94bf6fff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_f6c925cbc54cc42a4bcef4576e3783b1 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_72159fa70ea8ebbd92cdb12e3749a221 = $(`<div id="html_72159fa70ea8ebbd92cdb12e3749a221" style="width: 100.0%; height: 100.0%;"><b>КП 731</b> · Этап 4<br>Загадка<br><i>Где это видано: слева тридцать банок, справа — под сорок! Как только не кренится?\nИз всех &quot;банок&quot; выбирайте сороковую. Два окна первого этажа по сторонам от мемориальной доски</i><br><b>Задание:</b> Самое длинное существительное<br><details><summary>Правильный ответ</summary><b>сохранение</b></details><br>Взяли: <b>74/101</b> (73%)<br>Не взяли: X494, X431, X469, X4129, X462, X418, X432, X433, X4103, X458, X4119, X4123, X405, X486, X466, X4118, X434, X491, X429, X4121 … +7</div>`)[0];
+                popup_f6c925cbc54cc42a4bcef4576e3783b1.setContent(html_72159fa70ea8ebbd92cdb12e3749a221);
+            
+        
+
+        circle_marker_44ac69ef4351cf733fec2f2c0dd30aa4.bindPopup(popup_f6c925cbc54cc42a4bcef4576e3783b1)
+        ;
+
+        
+    
+    
+            circle_marker_44ac69ef4351cf733fec2f2c0dd30aa4.bindTooltip(
+                `<div>
+                     КП 731: 73%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5462636589bdbbabafa2b926f7a07e98 = L.marker(
+                [59.93142, 30.288137],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_944ff48dbbfc41e0b7cb91489dab60d3 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e731\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_5462636589bdbbabafa2b926f7a07e98.setIcon(div_icon_944ff48dbbfc41e0b7cb91489dab60d3);
+            
+    
+            var circle_marker_d51ded12129b8a7adcc9ddb51d13de0d = L.circleMarker(
+                [59.921567, 30.290678],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b8ca79ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_9fce9a87bcd3403ceeb27f1e02c2efec = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_cd579bce1898c95f55bce825ccdc0204 = $(`<div id="html_cd579bce1898c95f55bce825ccdc0204" style="width: 100.0%; height: 100.0%;"><b>КП 732</b> · Этап 4<br>Загадка<br><i>Не то чтобы предок героя был особенно падок на золото, но перед одним искушением всё-таки не устоял. А человек с созвучным именем, напротив, был твёрд в своих убеждениях. Территория, название которой начинается с этого имени. Скульптура</i><br><b>Задание:</b> Первые три буквы на хлястике<br><details><summary>Правильный ответ</summary><b>Евг</b></details><br>Взяли: <b>66/101</b> (65%)<br>Не взяли: X423, X431, X4129, X416, X426, X437, X461, X462, X480, X418, X432, X457, X433, X452, X408, X4103, X4123, X405, X451, X486 … +15</div>`)[0];
+                popup_9fce9a87bcd3403ceeb27f1e02c2efec.setContent(html_cd579bce1898c95f55bce825ccdc0204);
+            
+        
+
+        circle_marker_d51ded12129b8a7adcc9ddb51d13de0d.bindPopup(popup_9fce9a87bcd3403ceeb27f1e02c2efec)
+        ;
+
+        
+    
+    
+            circle_marker_d51ded12129b8a7adcc9ddb51d13de0d.bindTooltip(
+                `<div>
+                     КП 732: 65%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5ce050cae2206a2cf65d8b70e6c6ed40 = L.marker(
+                [59.921567, 30.290678],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_e8f02f817c31885e422df1ddbcb6598a = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e732\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_5ce050cae2206a2cf65d8b70e6c6ed40.setIcon(div_icon_e8f02f817c31885e422df1ddbcb6598a);
+            
+    
+            var circle_marker_e986856321d7f21cc0859aa4ee88ff80 = L.circleMarker(
+                [59.928556966306, 30.285696855183],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#35a157ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_41dd90a5297cc6120d2141a472171786 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_d976325a0261880f3fab51f3b224feaa = $(`<div id="html_d976325a0261880f3fab51f3b224feaa" style="width: 100.0%; height: 100.0%;"><b>КП 740</b> · Этап 4<br>Загадка<br><i>Режиссёр 1: &quot;Возьму в аренду Сергея Лазарева!&quot;\nРежиссёр 2: &quot;Он работает только в моих спектаклях! А из той роли, что ты предлагаешь, вообще уже вырос!&quot;\nВ нашем диалоге вымышленный &quot;Режиссёр 1&quot; пытался пошутить. Он ошибся в названии, но суть уловил. Сергей много лет работал в загаданном спектакле и с тех пор доверяет свою театральную карьеру реальному &quot;Режиссёру 2&quot;. Найдите улицу однофамильца &quot;Режиссёра 2&quot;. \nДом 2. Рисунок на двери. Надпись, вышитая жемчугом</i><br><b>Задание:</b> Вторая буква<br><details><summary>Правильный ответ</summary><b>Е</b></details><br>Взяли: <b>95/101</b> (94%)<br>Не взяли: X4124, X465, X4137, X4134, X472, X4107</div>`)[0];
+                popup_41dd90a5297cc6120d2141a472171786.setContent(html_d976325a0261880f3fab51f3b224feaa);
+            
+        
+
+        circle_marker_e986856321d7f21cc0859aa4ee88ff80.bindPopup(popup_41dd90a5297cc6120d2141a472171786)
+        ;
+
+        
+    
+    
+            circle_marker_e986856321d7f21cc0859aa4ee88ff80.bindTooltip(
+                `<div>
+                     КП 740: 94%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_79e60b44a36cf5b5359ed3148dfb9e26 = L.marker(
+                [59.928556966306, 30.285696855183],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_64f773acb481fe14c866bf18f997550d = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e740\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_79e60b44a36cf5b5359ed3148dfb9e26.setIcon(div_icon_64f773acb481fe14c866bf18f997550d);
+            
+    
+            var circle_marker_378a0c9d8f0b7e9b11ca37626662d888 = L.circleMarker(
+                [59.918394, 30.291395],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#55ab5fff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_be14aecf325d3c4009b8b7f5e977b699 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_e5299df8bbcb20a465743fa10c47dba8 = $(`<div id="html_e5299df8bbcb20a465743fa10c47dba8" style="width: 100.0%; height: 100.0%;"><b>КП 708</b> · Этап 4<br>Загадка<br><i>В специфическом рейтинге тех, кто нас травмировал в раннем возрасте, конечно, нет Бетховена. Зато первые позиции там занимают героиня Чехова, героиня Андреева и ОНА. Соседний дом к востоку от НЕЁ. Вертикально написанный номер телефона в одном из окон первого этажа</i><br><b>Задание:</b> Две нижние цифры<br><details><summary>Правильный ответ</summary><b>04</b></details><br>Взяли: <b>88/101</b> (87%)<br>Не взяли: X478, X483, X4119, X451, X4105, X429, X4116, X4121, X4124, X4137, X4134, X472, X4107</div>`)[0];
+                popup_be14aecf325d3c4009b8b7f5e977b699.setContent(html_e5299df8bbcb20a465743fa10c47dba8);
+            
+        
+
+        circle_marker_378a0c9d8f0b7e9b11ca37626662d888.bindPopup(popup_be14aecf325d3c4009b8b7f5e977b699)
+        ;
+
+        
+    
+    
+            circle_marker_378a0c9d8f0b7e9b11ca37626662d888.bindTooltip(
+                `<div>
+                     КП 708: 87%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_85506ab5c04a9ac62e89cb6fdb5ee9b4 = L.marker(
+                [59.918394, 30.291395],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_89d5d86a5c5faef4d2f5fa815481dfd2 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e708\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_85506ab5c04a9ac62e89cb6fdb5ee9b4.setIcon(div_icon_89d5d86a5c5faef4d2f5fa815481dfd2);
+            
+    
+            var circle_marker_b1df13ad14108224e04722962b94d19e = L.circleMarker(
+                [59.913849, 30.29039],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94bf6fff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_3a7d7728593bbc82b4f970b922d80213 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_0c574a6b75989f65e63d674c1678b1ca = $(`<div id="html_0c574a6b75989f65e63d674c1678b1ca" style="width: 100.0%; height: 100.0%;"><b>КП 713</b> · Этап 5<br>Загадка<br><i>См. картинку.\nНе в Москве, а в Петербурге. Род не женский, а мужской. И цифру во второй строке переверните — получится номер дома. Цвет, кстати, похож.\nБлижайший к воротам дорожный знак на стене</i><br><b>Задание:</b> Сумма цифр на знаке<br><details><summary>Правильный ответ</summary><b>12</b></details><br>Взяли: <b>74/101</b> (73%)<br>Не взяли: X409, X430, X463, X478, X483, X460, X464, X470, X477, X415, X408, X458, X4123, X486, X4105, X4118, X434, X491, X429, X4116 … +7</div>`)[0];
+                popup_3a7d7728593bbc82b4f970b922d80213.setContent(html_0c574a6b75989f65e63d674c1678b1ca);
+            
+        
+
+        circle_marker_b1df13ad14108224e04722962b94d19e.bindPopup(popup_3a7d7728593bbc82b4f970b922d80213)
+        ;
+
+        
+    
+    
+            circle_marker_b1df13ad14108224e04722962b94d19e.bindTooltip(
+                `<div>
+                     КП 713: 73%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7c55ddf8d466e078973892430bc0327c = L.marker(
+                [59.913849, 30.29039],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_f01215b10e21a4a4c8c01279db89735f = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e713\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_7c55ddf8d466e078973892430bc0327c.setIcon(div_icon_f01215b10e21a4a4c8c01279db89735f);
+            
+    
+            var circle_marker_b9e71acf4fcc03bb5b83b93c93778639 = L.circleMarker(
+                [59.917850966306, 30.299041843616],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#abc675ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_9e9e06da885ce68eabdd1c2eddd001ff = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_e98dc38309fdf2d03e260c2161aa1604 = $(`<div id="html_e98dc38309fdf2d03e260c2161aa1604" style="width: 100.0%; height: 100.0%;"><b>КП 718</b> · Этап 5<br>Загадка<br><i>ОН знал своих предшественников: того, кого мы помним по должности (и иногда – по чину), и того, кого чаще называем по имени-отчеству. Причём первому ОН сочувствовал, а автором второго был недоволен. ЕГО имя начинает топоним. Пятнадцатый дом. Граффити с котами в оконных проёмах</i><br><b>Задание:</b> Количество шахматных фигур<br><details><summary>Правильный ответ</summary><b>11</b></details><br>Взяли: <b>69/101</b> (68%)<br>Не взяли: X413, X469, X470, X476, X426, X437, X480, X415, X418, X457, X433, X452, X408, X4103, X458, X4119, X4123, X405, X486, X466 … +12</div>`)[0];
+                popup_9e9e06da885ce68eabdd1c2eddd001ff.setContent(html_e98dc38309fdf2d03e260c2161aa1604);
+            
+        
+
+        circle_marker_b9e71acf4fcc03bb5b83b93c93778639.bindPopup(popup_9e9e06da885ce68eabdd1c2eddd001ff)
+        ;
+
+        
+    
+    
+            circle_marker_b9e71acf4fcc03bb5b83b93c93778639.bindTooltip(
+                `<div>
+                     КП 718: 68%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_05ffc592ef42bdd966a5421b192cc9d6 = L.marker(
+                [59.917850966306, 30.299041843616],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_f8c9797614a99f8d533c4e5dde692364 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e718\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_05ffc592ef42bdd966a5421b192cc9d6.setIcon(div_icon_f8c9797614a99f8d533c4e5dde692364);
+            
+    
+            var circle_marker_ceea3e8eeb0e851a27e95c74f62d3e73 = L.circleMarker(
+                [59.914582, 30.27282],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8bbc6dff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_f117d226996058de315054624e5bdd1f = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_5be3402af3b007805e468cc66c88fdda = $(`<div id="html_5be3402af3b007805e468cc66c88fdda" style="width: 100.0%; height: 100.0%;"><b>КП 733</b> · Этап 5<br>Загадка<br><i>См. картинку. Мы выделили влюблённую. Вспомните имя её соперницы и отправляйтесь на созвучный переулок. Дом 3. Табличка, располагающаяся под адресной</i><br><b>Задание:</b> Расстояние на табличке (с единицами измерения)<br><details><summary>Правильный ответ</summary><b>1 м;1м</b></details><br>Взяли: <b>76/101</b> (75%)<br>Не взяли: X407, X474, X473, X431, X426, X477, X480, X415, X458, X4123, X451, X486, X4105, X4118, X434, X491, X429, X4116, X4121, X4124 … +5</div>`)[0];
+                popup_f117d226996058de315054624e5bdd1f.setContent(html_5be3402af3b007805e468cc66c88fdda);
+            
+        
+
+        circle_marker_ceea3e8eeb0e851a27e95c74f62d3e73.bindPopup(popup_f117d226996058de315054624e5bdd1f)
+        ;
+
+        
+    
+    
+            circle_marker_ceea3e8eeb0e851a27e95c74f62d3e73.bindTooltip(
+                `<div>
+                     КП 733: 75%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1a6d6a98f97ff2e3e1fcbce19db5451f = L.marker(
+                [59.914582, 30.27282],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_078bfbb78134fd5207bd1341acdabfd9 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e733\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_1a6d6a98f97ff2e3e1fcbce19db5451f.setIcon(div_icon_078bfbb78134fd5207bd1341acdabfd9);
+            
+    
+            var circle_marker_32e75e81b49d2498522fa4f20e656234 = L.circleMarker(
+                [59.915525, 30.296298],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62af63ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_bf12303ede0be17b9da75c2dfb6d6801 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_cc7bde2f2a3fc9c3ecc4b114fbac9a25 = $(`<div id="html_cc7bde2f2a3fc9c3ecc4b114fbac9a25" style="width: 100.0%; height: 100.0%;"><b>КП 750</b> · Этап 5<br>Загадка<br><i>В своё время ОНА заметно возвышалась над Ленинградом. Пишут, что именно из-за этого (точнее, из-за прекрасного обзора) значимую часть гостей туда пускать перестали. \nФонтан в сквере перед НЕЙ</i><br><b>Задание:</b> Количество торчащих из воды форсунок, из которых могут бить струи фонтана<br><details><summary>Правильный ответ</summary><b>44</b></details><br>Взяли: <b>85/101</b> (84%)<br>Не взяли: X469, X415, X4123, X486, X4105, X4118, X434, X429, X4116, X4121, X4124, X4137, X4134, X4122, X472, X4107</div>`)[0];
+                popup_bf12303ede0be17b9da75c2dfb6d6801.setContent(html_cc7bde2f2a3fc9c3ecc4b114fbac9a25);
+            
+        
+
+        circle_marker_32e75e81b49d2498522fa4f20e656234.bindPopup(popup_bf12303ede0be17b9da75c2dfb6d6801)
+        ;
+
+        
+    
+    
+            circle_marker_32e75e81b49d2498522fa4f20e656234.bindTooltip(
+                `<div>
+                     КП 750: 84%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9bd6e7292115b04ad79f1ca3173f277f = L.marker(
+                [59.915525, 30.296298],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_3e6265f83c85ae3686e327e29259bae9 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e750\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_9bd6e7292115b04ad79f1ca3173f277f.setIcon(div_icon_3e6265f83c85ae3686e327e29259bae9);
+            
+    
+            var circle_marker_8112eeda8c772d629f5b52a648e74deb = L.circleMarker(
+                [59.912801966306, 30.277068838164],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5eae61ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_3d28525de03e5f29d1263ea19c6a03da = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_6171bf0b31154ab33922c0f69387129a = $(`<div id="html_6171bf0b31154ab33922c0f69387129a" style="width: 100.0%; height: 100.0%;"><b>КП 769</b> · Этап 5<br>Загадка<br><i>См. картинку. Скрытые куски текста во многом совпадают. Правда, здание в реальности было не там. Дом 15 через дорогу от места, где оно на самом деле находилось. Лестница № 1. Квадратики с номерами квартир над дверью</i><br><b>Задание:</b> Квадратик с номером какой квартиры отсутствует?<br><details><summary>Правильный ответ</summary><b>7</b></details><br>Взяли: <b>86/101</b> (85%)<br>Не взяли: X477, X452, X451, X486, X4105, X434, X429, X4116, X4121, X4124, X465, X4137, X4134, X472, X4107</div>`)[0];
+                popup_3d28525de03e5f29d1263ea19c6a03da.setContent(html_6171bf0b31154ab33922c0f69387129a);
+            
+        
+
+        circle_marker_8112eeda8c772d629f5b52a648e74deb.bindPopup(popup_3d28525de03e5f29d1263ea19c6a03da)
+        ;
+
+        
+    
+    
+            circle_marker_8112eeda8c772d629f5b52a648e74deb.bindTooltip(
+                `<div>
+                     КП 769: 85%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a762f2a746023578b8cb94b91a62a721 = L.marker(
+                [59.912801966306, 30.277068838164],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_ee0794cc36c86240c461e27b9646e332 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e769\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_a762f2a746023578b8cb94b91a62a721.setIcon(div_icon_ee0794cc36c86240c461e27b9646e332);
+            
+    
+            var circle_marker_5989df2580839a2225b3b95445532162 = L.circleMarker(
+                [59.911481966306, 30.269745836739],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3ea459ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_f1d1a439ef7ce59e24280c642f36f33c = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_946071c2adaa36a77cebf1ac1b03eb97 = $(`<div id="html_946071c2adaa36a77cebf1ac1b03eb97" style="width: 100.0%; height: 100.0%;"><b>КП 771</b> · Этап 5<br>Загадка<br><i>См. картинку. Вопросом мы скрыли название улицы. Дом 45. Окна первого этажа, выходящие на улицу. Решетка любого из окон</i><br><b>Задание:</b> Количество заостренных пик<br><details><summary>Правильный ответ</summary><b>6</b></details><br>Взяли: <b>93/101</b> (92%)<br>Не взяли: X477, X486, X429, X4116, X4124, X4137, X4134, X472</div>`)[0];
+                popup_f1d1a439ef7ce59e24280c642f36f33c.setContent(html_946071c2adaa36a77cebf1ac1b03eb97);
+            
+        
+
+        circle_marker_5989df2580839a2225b3b95445532162.bindPopup(popup_f1d1a439ef7ce59e24280c642f36f33c)
+        ;
+
+        
+    
+    
+            circle_marker_5989df2580839a2225b3b95445532162.bindTooltip(
+                `<div>
+                     КП 771: 92%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5b458e2cd2763409c268337af889ad2d = L.marker(
+                [59.911481966306, 30.269745836739],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_ae22b62725b3763cbf4344665e7d1027 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e771\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_5b458e2cd2763409c268337af889ad2d.setIcon(div_icon_ae22b62725b3763cbf4344665e7d1027);
+            
+    
+            var circle_marker_17e7e24dd3b640f832a5c0d17c82d22d = L.circleMarker(
+                [59.91065, 30.268069],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+        var popup_4acdf75dabcd8ec770190247f552923b = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_3305605fc8fab3cf165db9f999c9a7bf = $(`<div id="html_3305605fc8fab3cf165db9f999c9a7bf" style="width: 100.0%; height: 100.0%;"><b>КП 499</b> · Этап 6<br>ул. Степана Разина, д. 8 А, вход на территорию строго через ворота с Курляндской ул. между домами 46 и 48<br><i>Площадка перед входом в лофт</i><br><b>Задание:</b> Сделайте селфи всей команды на фоне флагов Бегущего Города<br>Взяли: <b>101/101</b> (100%)</div>`)[0];
+                popup_4acdf75dabcd8ec770190247f552923b.setContent(html_3305605fc8fab3cf165db9f999c9a7bf);
+            
+        
+
+        circle_marker_17e7e24dd3b640f832a5c0d17c82d22d.bindPopup(popup_4acdf75dabcd8ec770190247f552923b)
+        ;
+
+        
+    
+    
+            circle_marker_17e7e24dd3b640f832a5c0d17c82d22d.bindTooltip(
+                `<div>
+                     КП 499: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_4b7ce34d180aac29cf96a6b765db7e83 = L.marker(
+                [59.91065, 30.268069],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var div_icon_2765a38db52436e14ddb0d6e8a8c2812 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e499\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_4b7ce34d180aac29cf96a6b765db7e83.setIcon(div_icon_2765a38db52436e14ddb0d6e8a8c2812);
+            
+    
+            var marker_070a506f5c8c179b8215f02d2d2c63fb = L.marker(
+                [59.910654, 30.268189],
+                {
+}
+            ).addTo(feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f);
+        
+    
+            var icon_b194ee3b7a6a70dd3555aa16f3c0369d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_be8a604f5099326dc1fae09312290e25 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_19faa14f0e21f78556ed34f0d8f3542b = $(`<div id="html_19faa14f0e21f78556ed34f0d8f3542b" style="width: 100.0%; height: 100.0%;"><b>КП 99</b> · Финиш<br>ул. Степана Разина, д. 8 А, вход на территорию строго через ворота с Курляндской ул. между домами 46 и 48</div>`)[0];
+                popup_be8a604f5099326dc1fae09312290e25.setContent(html_19faa14f0e21f78556ed34f0d8f3542b);
+            
+        
+
+        marker_070a506f5c8c179b8215f02d2d2c63fb.bindPopup(popup_be8a604f5099326dc1fae09312290e25)
+        ;
+
+        
+    
+    
+            marker_070a506f5c8c179b8215f02d2d2c63fb.bindTooltip(
+                `<div>
+                     Финиш · КП 99
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_070a506f5c8c179b8215f02d2d2c63fb.setIcon(icon_b194ee3b7a6a70dd3555aa16f3c0369d);
+            
+    
+            feature_group_4b6f2bdf58017221c1038ee8b7bfbf1f.addTo(map_7ea25eaaa97447cfd10838e2187edec7);
+        
+    
+            L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
+                _getDisplayDateFormat: function(date){
+                    var newdate = new moment(date);
+                    console.log(newdate)
+                    return newdate.format("HH:mm");
+                }
+            });
+            map_7ea25eaaa97447cfd10838e2187edec7.timeDimension = L.timeDimension(
+                {
+                    period: "PT2M",
+                }
+            );
+            var timeDimensionControl = new L.Control.TimeDimensionCustom(
+                {
+  "position": "bottomleft",
+  "minSpeed": 0.1,
+  "maxSpeed": 20,
+  "autoPlay": false,
+  "loopButton": false,
+  "timeSliderDragUpdate": true,
+  "speedSlider": true,
+  "playerOptions": {
+  "transitionTime": 150,
+  "loop": false,
+  "startOver": true,
+},
+}
+            );
+            map_7ea25eaaa97447cfd10838e2187edec7.addControl(this.timeDimensionControl);
+
+            var geoJsonLayer = L.geoJson({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.273561, 59.900643]}, "properties": {"time": "2026-10-10T13:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.272493, 59.901153]}, "properties": {"time": "2026-10-10T14:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.273469, 59.902625]}, "properties": {"time": "2026-10-10T14:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274202, 59.902841]}, "properties": {"time": "2026-10-10T14:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.272456, 59.901547]}, "properties": {"time": "2026-10-10T14:06:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.273857, 59.899765]}, "properties": {"time": "2026-10-10T14:08:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.271141, 59.898778]}, "properties": {"time": "2026-10-10T14:10:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.268928, 59.898372]}, "properties": {"time": "2026-10-10T14:12:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.264362, 59.897476]}, "properties": {"time": "2026-10-10T14:14:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.264636, 59.896172]}, "properties": {"time": "2026-10-10T14:16:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.265342, 59.895083]}, "properties": {"time": "2026-10-10T14:18:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.264059, 59.894395]}, "properties": {"time": "2026-10-10T14:20:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.263678, 59.895196]}, "properties": {"time": "2026-10-10T14:22:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.263285, 59.895687]}, "properties": {"time": "2026-10-10T14:24:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.265593, 59.896282]}, "properties": {"time": "2026-10-10T14:26:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.268179, 59.896647]}, "properties": {"time": "2026-10-10T14:28:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.268179, 59.896647]}, "properties": {"time": "2026-10-10T14:30:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.27498, 59.897855]}, "properties": {"time": "2026-10-10T14:32:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.276104, 59.897997]}, "properties": {"time": "2026-10-10T14:34:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.278047, 59.898369]}, "properties": {"time": "2026-10-10T14:36:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.281789, 59.899285]}, "properties": {"time": "2026-10-10T14:38:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282751, 59.900223]}, "properties": {"time": "2026-10-10T14:40:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284966, 59.900886]}, "properties": {"time": "2026-10-10T14:42:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284439, 59.901942]}, "properties": {"time": "2026-10-10T14:44:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284512, 59.902357]}, "properties": {"time": "2026-10-10T14:46:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.286847, 59.904088]}, "properties": {"time": "2026-10-10T14:48:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.289953, 59.906005]}, "properties": {"time": "2026-10-10T14:50:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292019, 59.907446]}, "properties": {"time": "2026-10-10T14:52:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.294595, 59.90863]}, "properties": {"time": "2026-10-10T14:54:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.295785, 59.908619]}, "properties": {"time": "2026-10-10T14:56:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T14:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:06:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:08:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:10:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:12:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:14:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:16:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:18:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:20:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:22:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:24:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:26:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:28:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:30:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:32:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:34:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:36:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:38:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:40:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:42:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:44:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:46:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.2976, 59.9073]}, "properties": {"time": "2026-10-10T15:48:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300102, 59.907538]}, "properties": {"time": "2026-10-10T15:50:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302128, 59.90842]}, "properties": {"time": "2026-10-10T15:52:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.306823, 59.90834]}, "properties": {"time": "2026-10-10T15:54:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.306823, 59.90834]}, "properties": {"time": "2026-10-10T15:56:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.306823, 59.90834]}, "properties": {"time": "2026-10-10T15:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.307763, 59.909163]}, "properties": {"time": "2026-10-10T16:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.310713, 59.909206]}, "properties": {"time": "2026-10-10T16:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.313961, 59.910203]}, "properties": {"time": "2026-10-10T16:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.313961, 59.910203]}, "properties": {"time": "2026-10-10T16:06:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.313961, 59.910203]}, "properties": {"time": "2026-10-10T16:08:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.313961, 59.910203]}, "properties": {"time": "2026-10-10T16:10:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.315205, 59.912391]}, "properties": {"time": "2026-10-10T16:12:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.312701, 59.912416]}, "properties": {"time": "2026-10-10T16:14:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.309997, 59.911979]}, "properties": {"time": "2026-10-10T16:16:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.30957, 59.913283]}, "properties": {"time": "2026-10-10T16:18:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.309614, 59.913995]}, "properties": {"time": "2026-10-10T16:20:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.309716, 59.914669]}, "properties": {"time": "2026-10-10T16:22:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.310518, 59.916204]}, "properties": {"time": "2026-10-10T16:24:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.313107, 59.916234]}, "properties": {"time": "2026-10-10T16:26:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.312654, 59.917635]}, "properties": {"time": "2026-10-10T16:28:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31203, 59.919012]}, "properties": {"time": "2026-10-10T16:30:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:32:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:34:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:36:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:38:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:40:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:42:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:44:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:46:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:48:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:50:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:52:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:54:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:56:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T16:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.31279, 59.918918]}, "properties": {"time": "2026-10-10T17:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.312697, 59.919225]}, "properties": {"time": "2026-10-10T17:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.311849, 59.919811]}, "properties": {"time": "2026-10-10T17:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.307946, 59.919123]}, "properties": {"time": "2026-10-10T17:06:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.306768, 59.919649]}, "properties": {"time": "2026-10-10T17:08:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.305175, 59.919675]}, "properties": {"time": "2026-10-10T17:10:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.305088, 59.920475]}, "properties": {"time": "2026-10-10T17:12:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.303563, 59.921734]}, "properties": {"time": "2026-10-10T17:14:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302462, 59.922856]}, "properties": {"time": "2026-10-10T17:16:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300503, 59.923933]}, "properties": {"time": "2026-10-10T17:18:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302147, 59.924723]}, "properties": {"time": "2026-10-10T17:20:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300319, 59.926313]}, "properties": {"time": "2026-10-10T17:22:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300729, 59.927653]}, "properties": {"time": "2026-10-10T17:24:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.301681, 59.928615]}, "properties": {"time": "2026-10-10T17:26:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.30172, 59.928844]}, "properties": {"time": "2026-10-10T17:28:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.301068, 59.930974]}, "properties": {"time": "2026-10-10T17:30:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302751, 59.931304]}, "properties": {"time": "2026-10-10T17:32:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.301477, 59.932734]}, "properties": {"time": "2026-10-10T17:34:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.301195, 59.933166]}, "properties": {"time": "2026-10-10T17:36:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.296397, 59.931803]}, "properties": {"time": "2026-10-10T17:38:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.294237, 59.932064]}, "properties": {"time": "2026-10-10T17:40:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:42:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:44:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:46:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:48:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:50:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:52:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:54:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:56:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T17:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:06:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:08:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:10:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:12:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:14:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:16:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:18:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:20:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:22:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:24:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:26:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:28:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:30:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:32:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:34:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:36:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:38:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:40:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:42:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:44:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:46:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:48:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:50:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:52:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:54:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:56:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T18:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T19:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T19:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T19:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T19:06:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T19:08:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T19:10:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T19:12:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292686, 59.931585]}, "properties": {"time": "2026-10-10T19:14:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.29175, 59.931804]}, "properties": {"time": "2026-10-10T19:16:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290863, 59.932243]}, "properties": {"time": "2026-10-10T19:18:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.288307, 59.931449]}, "properties": {"time": "2026-10-10T19:20:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284926, 59.930609]}, "properties": {"time": "2026-10-10T19:22:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.285043, 59.929454]}, "properties": {"time": "2026-10-10T19:24:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.285285, 59.928622]}, "properties": {"time": "2026-10-10T19:26:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.28299, 59.92845]}, "properties": {"time": "2026-10-10T19:28:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279845, 59.927281]}, "properties": {"time": "2026-10-10T19:30:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279495, 59.926105]}, "properties": {"time": "2026-10-10T19:32:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.280133, 59.925339]}, "properties": {"time": "2026-10-10T19:34:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.280852, 59.924137]}, "properties": {"time": "2026-10-10T19:36:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.281797, 59.923066]}, "properties": {"time": "2026-10-10T19:38:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.28334, 59.923539]}, "properties": {"time": "2026-10-10T19:40:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.281413, 59.922663]}, "properties": {"time": "2026-10-10T19:42:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.278026, 59.921149]}, "properties": {"time": "2026-10-10T19:44:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.27893, 59.920103]}, "properties": {"time": "2026-10-10T19:46:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279784, 59.919066]}, "properties": {"time": "2026-10-10T19:48:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282469, 59.920612]}, "properties": {"time": "2026-10-10T19:50:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284711, 59.920074]}, "properties": {"time": "2026-10-10T19:52:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.287074, 59.921133]}, "properties": {"time": "2026-10-10T19:54:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290636, 59.921521]}, "properties": {"time": "2026-10-10T19:56:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290636, 59.921521]}, "properties": {"time": "2026-10-10T19:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.287338, 59.920615]}, "properties": {"time": "2026-10-10T20:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.287756, 59.919775]}, "properties": {"time": "2026-10-10T20:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:06:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:08:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:10:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:12:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:14:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:16:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:18:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:20:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:22:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:24:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:26:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:28:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:30:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:32:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:34:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:36:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:38:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:40:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:42:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:44:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:46:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:48:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:50:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:52:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:54:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:56:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T20:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T21:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T21:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T21:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T21:06:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290273, 59.918042]}, "properties": {"time": "2026-10-10T21:08:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292076, 59.91808]}, "properties": {"time": "2026-10-10T21:10:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.29528, 59.918739]}, "properties": {"time": "2026-10-10T21:12:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.29657, 59.918142]}, "properties": {"time": "2026-10-10T21:14:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.298943, 59.917735]}, "properties": {"time": "2026-10-10T21:16:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.29922, 59.917761]}, "properties": {"time": "2026-10-10T21:18:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297412, 59.917399]}, "properties": {"time": "2026-10-10T21:20:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297608, 59.916366]}, "properties": {"time": "2026-10-10T21:22:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.296563, 59.915849]}, "properties": {"time": "2026-10-10T21:24:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.296563, 59.915849]}, "properties": {"time": "2026-10-10T21:26:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.296779, 59.91402]}, "properties": {"time": "2026-10-10T21:28:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292713, 59.913814]}, "properties": {"time": "2026-10-10T21:30:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292713, 59.913814]}, "properties": {"time": "2026-10-10T21:32:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292713, 59.913814]}, "properties": {"time": "2026-10-10T21:34:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.28938, 59.913812]}, "properties": {"time": "2026-10-10T21:36:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.285404, 59.913478]}, "properties": {"time": "2026-10-10T21:38:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.281923, 59.91338]}, "properties": {"time": "2026-10-10T21:40:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279626, 59.913296]}, "properties": {"time": "2026-10-10T21:42:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279626, 59.913296]}, "properties": {"time": "2026-10-10T21:44:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274546, 59.913053]}, "properties": {"time": "2026-10-10T21:46:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.272962, 59.913804]}, "properties": {"time": "2026-10-10T21:48:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.273137, 59.913805]}, "properties": {"time": "2026-10-10T21:50:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.275454, 59.913265]}, "properties": {"time": "2026-10-10T21:52:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.277263, 59.913431]}, "properties": {"time": "2026-10-10T21:54:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.27589, 59.911553]}, "properties": {"time": "2026-10-10T21:56:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274828, 59.911479]}, "properties": {"time": "2026-10-10T21:58:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.272088, 59.911408]}, "properties": {"time": "2026-10-10T22:00:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.268172, 59.91101]}, "properties": {"time": "2026-10-10T22:02:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.267952, 59.910677]}, "properties": {"time": "2026-10-10T22:04:00", "popup": "X4120 . (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}]}, {
+                    pointToLayer: function (feature, latLng) {
+                        if (feature.properties.icon == 'marker') {
+                            if(feature.properties.iconstyle){
+                                return new L.Marker(latLng, {
+                                    icon: L.icon(feature.properties.iconstyle)});
+                            }
+                            //else
+                            return new L.Marker(latLng);
+                        }
+                        if (feature.properties.icon == 'circle') {
+                            if (feature.properties.iconstyle) {
+                                return new L.circleMarker(latLng, feature.properties.iconstyle)
+                                };
+                            //else
+                            return new L.circleMarker(latLng);
+                        }
+                        //else
+
+                        return new L.Marker(latLng);
+                    },
+                    style: function (feature) {
+                        return feature.properties.style;
+                    },
+                    onEachFeature: function(feature, layer) {
+                        if (feature.properties.popup) {
+                        layer.bindPopup(feature.properties.popup);
+                        }
+                        if (feature.properties.tooltip) {
+                        layer.bindTooltip(feature.properties.tooltip);
+                        }
+                    }
+                })
+
+            var timestamped_geo_json_1c5c87508062f2a242f85066d3cf3b8c = L.timeDimension.layer.geoJson(
+                geoJsonLayer,
+                {
+                    updateTimeDimension: true,
+                    addlastPoint: false,
+                    duration: "PT20M",
+                }
+            ).addTo(map_7ea25eaaa97447cfd10838e2187edec7);
+        
+</script>
+</html>

@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3f8a6a6382375899be5a1e0880f891d7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
+</head>
+<body>
+    
+    <div style="position:fixed;top:12px;left:60px;z-index:9999;background:#fff;padding:8px 14px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.25);font-family:sans-serif"><b style="font-size:15px">Бегущий Город 2026 — Лев-Лайт: повтор гонки</b><div style="font-size:12px;color:#555">2 команд с GPS · время московское · ▶ внизу слева</div></div>
+    
+            <div class="folium-map" id="map_3f8a6a6382375899be5a1e0880f891d7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3f8a6a6382375899be5a1e0880f891d7 = L.map(
+                "map_3f8a6a6382375899be5a1e0880f891d7",
+                {
+                    center: [59.91538645736434, 30.282124810852714],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_3f8a6a6382375899be5a1e0880f891d7);
+
+            
+
+        
+    
+            var tile_layer_296ef92b84be607794b7a41048d9925b = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 16,
+  "maxNativeZoom": 16,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Esri, DeLorme, NAVTEQ",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_296ef92b84be607794b7a41048d9925b.addTo(map_3f8a6a6382375899be5a1e0880f891d7);
+        
+    
+            var tile_layer_270ebce17be48777087644dc70ad2dc3 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            var tile_layer_f7bddf125bd069f30ac531ff3dae78b6 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            var feature_group_84d8da9a16dc523913bb9f765491d99b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_7db6a07b47f94b64a5795d99e48b9b4f = L.marker(
+                [59.900903, 30.274546],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var icon_08d13fe97715f561da7f233ab9252280 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2b57c65fe5a17664bc14386c8663ece1 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_d56f53e6a9dfb6c86913bd83c5726216 = $(`<div id="html_d56f53e6a9dfb6c86913bd83c5726216" style="width: 100.0%; height: 100.0%;"><b>КП 401</b> · Старт<br>Участок около наземного вестибюля ст. м. Нарвская</div>`)[0];
+                popup_2b57c65fe5a17664bc14386c8663ece1.setContent(html_d56f53e6a9dfb6c86913bd83c5726216);
+            
+        
+
+        marker_7db6a07b47f94b64a5795d99e48b9b4f.bindPopup(popup_2b57c65fe5a17664bc14386c8663ece1)
+        ;
+
+        
+    
+    
+            marker_7db6a07b47f94b64a5795d99e48b9b4f.bindTooltip(
+                `<div>
+                     Старт · КП 401
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7db6a07b47f94b64a5795d99e48b9b4f.setIcon(icon_08d13fe97715f561da7f233ab9252280);
+            
+    
+            var circle_marker_9e7bc6cb41a4c0d6114c5891f1033b53 = L.circleMarker(
+                [59.903386, 30.255811],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_6f73f91074fe3aa0b410df8972061d5e = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_3bb52d393ab54dcedd64597f27d2a7df = $(`<div id="html_3bb52d393ab54dcedd64597f27d2a7df" style="width: 100.0%; height: 100.0%;"><b>КП 71</b> · Этап 1<br>Парк Екатерингоф. Лифляндская ул., д. 5<br><i>Участок газона севернее здания, рядом с пешеходной дорожкой. Клумба с высаженными растениями. Табличка про лаванду узколистную</i><br><b>Задание:</b> Последние две буквы последней строчки на табличке<br><details><summary>Правильный ответ</summary><b>са</b></details><br>Взяли: <b>113/113</b> (100%)<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">В 1823 году Екатерингоф был благоустроен по инициативе военного генерал-губернатора Петербурга графа Михаила Андреевича Милорадовича — уже как общедоступный парк. По проекту Огюста Монферрана были возведены псевдоготические павильоны Ферма, Львиный и Мавританский, — а также Катальная горка и Воксхолл. Двухэтажная Ферма с башней по сути представляла собой загородный дом генерал-губернатора. Готический (Львиный) павильон был сторожевой башней на берегу Екатерингофки и мог использоваться как маяк. Огромный одноэтажный Вокзал (он же Воксхолл) с круглым танцевальным залом предназначался для балов, музыкальных вечеров и прочих увеселений.<br><br>В связи с возросшей популярностью парка городские власти выделили средства на садовника, смотрителя и другие должности. Для смотрителя в 1830-х годах даже был построен двухэтажный деревянный дом у Молвинского моста. Впрочем, к 1870-м годам парк снова постепенно пришёл в упадок — и из-за недостатка финансирования, и из-за активного строительства в районе заводов и фабрик.<br><br>На илл.: Иван Андреевич Иванов. Пейзаж с рекой. Екатерингоф. 1844 год.<img src="https://img.runcity.org/storage/4/c1/3e0735c9bf1ac80f17f4839d94765c14.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_6f73f91074fe3aa0b410df8972061d5e.setContent(html_3bb52d393ab54dcedd64597f27d2a7df);
+            
+        
+
+        circle_marker_9e7bc6cb41a4c0d6114c5891f1033b53.bindPopup(popup_6f73f91074fe3aa0b410df8972061d5e)
+        ;
+
+        
+    
+    
+            circle_marker_9e7bc6cb41a4c0d6114c5891f1033b53.bindTooltip(
+                `<div>
+                     КП 71: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_65a3ad9a8dd4f8001654ab0bcea3b6a2 = L.marker(
+                [59.903386, 30.255811],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_e215448bf61cb815c5b78b9a6488c529 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e71\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_65a3ad9a8dd4f8001654ab0bcea3b6a2.setIcon(div_icon_e215448bf61cb815c5b78b9a6488c529);
+            
+    
+            var circle_marker_48af89acc39f12efbf92924f7f4a61a2 = L.circleMarker(
+                [59.903044, 30.277269],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_b555fc97679a66af2382ff57bed23796 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_246c1a1a605ec8d255ca5d3cb01ebc2c = $(`<div id="html_246c1a1a605ec8d255ca5d3cb01ebc2c" style="width: 100.0%; height: 100.0%;"><b>КП 73</b> · Этап 1<br>Старо-Петергофский пр., д. 42<br><i>Участок стены с проемом в сквере рядом с домом</i><br><b>Задание:</b> Количество проходящих насквозь труб в верхней части стены<br><details><summary>Правильный ответ</summary><b>9</b></details><br>Взяли: <b>113/113</b> (100%)<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">В апреле 1814 года в Санкт-Петербург с курьером пришло известие о вступлении русских войск в Париж — и о победе в Войне шестой коалиции. Для торжественной встречи победителей в столице было решено установить триумфальные ворота по образцу Арки Тита в Риме. Проект сооружения подготовил Джакомо Кваренги.<br><br>Уже к концу июля близ Нарвской заставы (между домами 37 и 44 по современному Старо-Петергофскому проспекту) были установлены деревянные триумфальные ворота. Они были выполнены в виде однопролётной арки, увенчанной колесницей Славы с шестью конями. Скульптурное убранство памятника было создано из гипса по моделям Ивана Ивановича Теребенёва — автора горельефа «Заведение флота в России» на аттике Адмиралтейства.<br><br>Деревянные ворота быстро обветшали, и потому в 1824 году был создан Комитет по строительству постоянной арки. Председательствовал в нём военный губернатор столицы Михаил Андреевич Милорадович. 400 тысяч рублей на строительство, по распоряжению Александра I, было выделено из состояния покойного генерала Фёдора Петровича Уварова, героя Отечественной войны 1812 года. Тот завещал средства на памятник в честь Гвардейского корпуса, которым в своё время командовал.<br><br>19 ноября (1 декабря) 1825 года скончался Александр I, в том же месяце на Сенатской площади был убит Милорадович — и закономерно работа Комитета была остановлена.<br><br>На илл.:<br><br>Карл Петрович Беггров. Нарвские триумфальные ворота. 1823 год.<img src="https://img.runcity.org/storage/f/c1/1902e0808684d0a21a4821a7c7f97c1f.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_b555fc97679a66af2382ff57bed23796.setContent(html_246c1a1a605ec8d255ca5d3cb01ebc2c);
+            
+        
+
+        circle_marker_48af89acc39f12efbf92924f7f4a61a2.bindPopup(popup_b555fc97679a66af2382ff57bed23796)
+        ;
+
+        
+    
+    
+            circle_marker_48af89acc39f12efbf92924f7f4a61a2.bindTooltip(
+                `<div>
+                     КП 73: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_010d9825f58b9d45cc93e9a25658758e = L.marker(
+                [59.903044, 30.277269],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_51445f04c48f1981cd846c3e82cdf4a8 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e73\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_010d9825f58b9d45cc93e9a25658758e.setIcon(div_icon_51445f04c48f1981cd846c3e82cdf4a8);
+            
+    
+            var circle_marker_12d1e3623ef61632c7afd0117d2597b4 = L.circleMarker(
+                [59.904269, 30.259899],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_a8fc05d24046946cffe66f2548886def = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_2ea1f9f2a1e06f9d49510cfb86d2f157 = $(`<div id="html_2ea1f9f2a1e06f9d49510cfb86d2f157" style="width: 100.0%; height: 100.0%;"><b>КП 74</b> · Этап 1<br>Парк Екатерингоф. Фундамент Екатерингофского дворца<br><i>Куб с табличкой с исторической информацией рядом с фундаментом</i><br><b>Задание:</b> Год в подписи под фотографией<br><details><summary>Правильный ответ</summary><b>1919</b></details><br>Взяли: <b>113/113</b> (100%)<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">В 1711 году Пётр I, дабы увековечить память о первой победе русского флота близ деревни Калинкиной, заложил на берегу Финского залива дворец и сад. Новую усадьбу царь назвал Екатерингофом, «двором Екатерины», и подарил своей супруге, будущей императрице Екатерине I. Вскоре к северу от Екатерингофа был построен Подзорный дворец Петра I, а к югу — более скромные дворцы Анненгоф и (ещё южнее) Елизаветгоф, предназначенные для дочерей монаршей четы.<br><br>Их младшая дочь, Елизавета Петровна, став императрицей, распорядилась провести перестройку Екатерингофского дворца и реконструкцию парка. «Разных художеств мастер» Харман ван Болос добавил к зданию второй этаж и два боковых флигеля. Петровский канал перед дворцом и пруды в парке очистили и углубили, в парке были проложены новые регулярные аллеи, высажены новые деревья, кустарники и обустроены клумбы. Появились и усадебные постройки, включавшие скотный двор и молочную ферму. После смерти императрицы парк постепенно пришёл в упадок.<br><br>После 1917 года бывший Екатерингофский дворец ненадолго занял клуб Нарвско-Петергофского района. После двух пожаров в 1920-х годах здание в конечном счёте было разобрано на дрова.<br><br>На илл.: Екатерингофский дворец. Начало XX века.<img src="https://img.runcity.org/storage/7/5c/0422b76033dc888b5f551ba97a41f5c7.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_a8fc05d24046946cffe66f2548886def.setContent(html_2ea1f9f2a1e06f9d49510cfb86d2f157);
+            
+        
+
+        circle_marker_12d1e3623ef61632c7afd0117d2597b4.bindPopup(popup_a8fc05d24046946cffe66f2548886def)
+        ;
+
+        
+    
+    
+            circle_marker_12d1e3623ef61632c7afd0117d2597b4.bindTooltip(
+                `<div>
+                     КП 74: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c5416a0fb48e7bdf3c188bacf6c5a72c = L.marker(
+                [59.904269, 30.259899],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_38a4a237df4eec718ab484429f57d013 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e74\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_c5416a0fb48e7bdf3c188bacf6c5a72c.setIcon(div_icon_38a4a237df4eec718ab484429f57d013);
+            
+    
+            var circle_marker_1c584663fdd20d7f1355fe1b49291dd0 = L.circleMarker(
+                [59.905931, 30.275482],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ed915eff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_a509a97038970b37051684d327f845b7 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_a7abb794f305da2380d16dab57528b20 = $(`<div id="html_a7abb794f305da2380d16dab57528b20" style="width: 100.0%; height: 100.0%;"><b>КП 76</b> · Этап 1<br>Нарвский пр., д. 1/29<br><i>Звонница, выходящая на перекрёсток Нарвского пр. и Старо-Петергофского пр.</i><br><b>Задание:</b> Количество колоколов (на территорию для выполнения задания заходить не требуется)<br><details><summary>Правильный ответ</summary><b>11</b></details><br>Взяли: <b>31/113</b> (27%)<br>Не взяли: L402, L403, L405, L407, L408, L409, L412, L413, L417, L419, L423, L426, L428, L429, L430, L431, L432, L442, L443, L444 … +62<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Датой основания Успенского монастыря в Старой Ладоге считается 1156 год. На его территории находится собор Успения Пресвятой Богородицы, самый северный домонгольский храм страны. Среди насельниц этой обители — царица Евдокия Лопухина, первая супруга Петра I, и Евдокия Андреевна Ганнибал, первая жена петровского крестника.<br><br>Монастырь выкупил участок под подворье на Нарвском проспекте в 1902 году — вскоре там был освящён временный деревянный храм. Каменный же храм во имя Казанской иконы Божией матери был заложен в июле 1905 года. Проект здания, построенного на пожертвования прихожан, подготовил Василий Антонович Косяков. Главный престол завершённого храма был торжественно освящён в 1910 году.<br><br>После революции подворье было ликвидировано. В 1929 году часовня и иконная лавка были отданы под жилые помещения. В 1935 году бывшую Казанскую церковь передали под универмаг.<br><br>В августе 1989 года комплекс снова стал монастырским подворьем — уже Валаамского мужского монастыря. В январе 1991 года на церкви вновь были установлены кресты. Главный престол был освящён после реставрации в апреле 1994 года. Часовня Новомучеников и Исповедников Российских была освящена в 1995 году.<br><br>На илл.:<br><br>Казанская церковь. Начало XX века.<img src="https://img.runcity.org/storage/d/39/010783c353c08bdc0480819ea59bd39d.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_a509a97038970b37051684d327f845b7.setContent(html_a7abb794f305da2380d16dab57528b20);
+            
+        
+
+        circle_marker_1c584663fdd20d7f1355fe1b49291dd0.bindPopup(popup_a509a97038970b37051684d327f845b7)
+        ;
+
+        
+    
+    
+            circle_marker_1c584663fdd20d7f1355fe1b49291dd0.bindTooltip(
+                `<div>
+                     КП 76: 27%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b769cab15946df063e562ebab2fbffb3 = L.marker(
+                [59.905931, 30.275482],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_9edfa4d8cbe1c44dfb5a72c89d235186 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e76\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_b769cab15946df063e562ebab2fbffb3.setIcon(div_icon_9edfa4d8cbe1c44dfb5a72c89d235186);
+            
+    
+            var circle_marker_8691f61fd62335824e482c2df869c463 = L.circleMarker(
+                [59.902019, 30.269598],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4aa75cff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_e87f713fe729bdd6c0e8a49bddab8560 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_cc9fbf36a7aa0208755fb2c90db580ac = $(`<div id="html_cc9fbf36a7aa0208755fb2c90db580ac" style="width: 100.0%; height: 100.0%;"><b>КП 175</b> · Этап 1<br>Стадион &quot;Кировец&quot;<br><i>Постройка рядом со въездом со стороны Перекопской ул. Баннеры с фотографиями стадиона на стене, выходящей в сторону Перекопской ул.</i><br><b>Задание:</b> Счет на табло на современном фото (запишите в формате Ц:Ц)<br><details><summary>Правильный ответ</summary><b>0:2</b></details><br>Взяли: <b>101/113</b> (89%)<br>Не взяли: L401, L400, L450, L488, L4113, L406, L466, L479, L4122, L469, L4127, L4111</div>`)[0];
+                popup_e87f713fe729bdd6c0e8a49bddab8560.setContent(html_cc9fbf36a7aa0208755fb2c90db580ac);
+            
+        
+
+        circle_marker_8691f61fd62335824e482c2df869c463.bindPopup(popup_e87f713fe729bdd6c0e8a49bddab8560)
+        ;
+
+        
+    
+    
+            circle_marker_8691f61fd62335824e482c2df869c463.bindTooltip(
+                `<div>
+                     КП 175: 89%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_752fb10949a3800458cbf18574bd56e9 = L.marker(
+                [59.902019, 30.269598],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_048b6cd3350ff6a39809a49c482d1abb = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e175\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_752fb10949a3800458cbf18574bd56e9.setIcon(div_icon_048b6cd3350ff6a39809a49c482d1abb);
+            
+    
+            var circle_marker_3ad301bee6fce1bdb9cfda8a0fb190aa = L.circleMarker(
+                [59.906458, 30.26271],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1e9951ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_a0d9f40342004c5276e39cf3c5a05697 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_71e826e826056def0dee75828531f0fd = $(`<div id="html_71e826e826056def0dee75828531f0fd" style="width: 100.0%; height: 100.0%;"><b>КП 277</b> · Этап 1<br>Лифляндская ул., д. 6д<br><i>Арка прохода рядом с домом. Барельефы в верхней части арки</i><br><b>Задание:</b> Предмет в центре любого из двух барельефов<br><details><summary>Правильный ответ</summary><b>Ваза</b></details><br>Взяли: <b>112/113</b> (99%)<br>Не взяли: L4111</div>`)[0];
+                popup_a0d9f40342004c5276e39cf3c5a05697.setContent(html_71e826e826056def0dee75828531f0fd);
+            
+        
+
+        circle_marker_3ad301bee6fce1bdb9cfda8a0fb190aa.bindPopup(popup_a0d9f40342004c5276e39cf3c5a05697)
+        ;
+
+        
+    
+    
+            circle_marker_3ad301bee6fce1bdb9cfda8a0fb190aa.bindTooltip(
+                `<div>
+                     КП 277: 99%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f99bc64e92e6abfcb09ec7ef9ddd1b14 = L.marker(
+                [59.906458, 30.26271],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_d9a838f1788ffef0080883dd5469ee83 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e277\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_f99bc64e92e6abfcb09ec7ef9ddd1b14.setIcon(div_icon_d9a838f1788ffef0080883dd5469ee83);
+            
+    
+            var circle_marker_8dcdb60e396a52920c6cc035627abf74 = L.circleMarker(
+                [59.90926, 30.25358],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_5a5eba5516d82898b072e28e44714f72 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_118f76d36612f10564dd47398bb0a784 = $(`<div id="html_118f76d36612f10564dd47398bb0a784" style="width: 100.0%; height: 100.0%;"><b>КП 60</b> · Этап 1<br>Виндавская ул., д. 2, лит. А<br><i>Вход в отель со стороны Двинской ул.</i><br><b>Задание:</b> Четырехзначный номер на сером шкафу под изображением маяка<br><details><summary>Правильный ответ</summary><b>0618</b></details><br>Взяли: <b>113/113</b> (100%)</div>`)[0];
+                popup_5a5eba5516d82898b072e28e44714f72.setContent(html_118f76d36612f10564dd47398bb0a784);
+            
+        
+
+        circle_marker_8dcdb60e396a52920c6cc035627abf74.bindPopup(popup_5a5eba5516d82898b072e28e44714f72)
+        ;
+
+        
+    
+    
+            circle_marker_8dcdb60e396a52920c6cc035627abf74.bindTooltip(
+                `<div>
+                     КП 60: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d433272bc38ce7b606fa0de9a9e0f1f2 = L.marker(
+                [59.90926, 30.25358],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_432a7c026d09bf45585335fb0ae48e72 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e60\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_d433272bc38ce7b606fa0de9a9e0f1f2.setIcon(div_icon_432a7c026d09bf45585335fb0ae48e72);
+            
+    
+            var circle_marker_71e8d59698ebf3f502bc8d358fe940fb = L.circleMarker(
+                [59.919533, 30.284709],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#36a157ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_19bb1d593932d2f4d124a40579c29e8f = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_5c6e515747e566fd48a1eab37d0767e6 = $(`<div id="html_5c6e515747e566fd48a1eab37d0767e6" style="width: 100.0%; height: 100.0%;"><b>КП 49</b> · Этап 2<br>Коломенский мост<br><b>Задание:</b> Число на любой из квадратных табличек на перилах моста<br><details><summary>Правильный ответ</summary><b>1.3</b></details><br>Взяли: <b>106/113</b> (94%)<br>Не взяли: L491, L424, L495, L4120, L479, L4127, L4109<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Коломенский мост получил свое название от Коломны, района, объединяющего Коломенский и Покровский острова. Изначально мост был деревянным, но в 1968-1969 годах его заменили современным сооружением. Считается, что Коломенский — первый мост в СССР опорная конструкция которого была создана из алюминиевых труб.<br><br>На илл.:<br><br>Коломенский мост. 1930-е годы.<img src="https://img.runcity.org/storage/f/db/08f6a9fb156074cda53129bf139f8dbf.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_19bb1d593932d2f4d124a40579c29e8f.setContent(html_5c6e515747e566fd48a1eab37d0767e6);
+            
+        
+
+        circle_marker_71e8d59698ebf3f502bc8d358fe940fb.bindPopup(popup_19bb1d593932d2f4d124a40579c29e8f)
+        ;
+
+        
+    
+    
+            circle_marker_71e8d59698ebf3f502bc8d358fe940fb.bindTooltip(
+                `<div>
+                     КП 49: 94%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0383e6147e96cbbb94efabef27a1a26e = L.marker(
+                [59.919533, 30.284709],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_229189494b579a0ccad06db2ba1a7aaf = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e49\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_0383e6147e96cbbb94efabef27a1a26e.setIcon(div_icon_229189494b579a0ccad06db2ba1a7aaf);
+            
+    
+            var circle_marker_bfb8afd04431b05606500aad6c4c0835 = L.circleMarker(
+                [59.910374, 30.25064],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_5f16711fde26ea6148ff0be9b6de17c0 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_06887b40ca5bd142dd8b669e74da7ba1 = $(`<div id="html_06887b40ca5bd142dd8b669e74da7ba1" style="width: 100.0%; height: 100.0%;"><b>КП 66</b> · Этап 2<br>Двинская ул., д. 5/7. Здание университета<br><i>Вход со стороны Межевого канала. Барельефы между большими круглыми колоннами под портиком</i><br><b>Задание:</b> Какая достопримечательность изображена на трех из пяти барельефов?<br><details><summary>Правильный ответ</summary><b>Ростральная колонна</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L404, L414, L4122</div>`)[0];
+                popup_5f16711fde26ea6148ff0be9b6de17c0.setContent(html_06887b40ca5bd142dd8b669e74da7ba1);
+            
+        
+
+        circle_marker_bfb8afd04431b05606500aad6c4c0835.bindPopup(popup_5f16711fde26ea6148ff0be9b6de17c0)
+        ;
+
+        
+    
+    
+            circle_marker_bfb8afd04431b05606500aad6c4c0835.bindTooltip(
+                `<div>
+                     КП 66: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_62ccd086099ca2ee0093469fc8a570c8 = L.marker(
+                [59.910374, 30.25064],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_45e916133f021a3aac7e816d084df3b3 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e66\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_62ccd086099ca2ee0093469fc8a570c8.setIcon(div_icon_45e916133f021a3aac7e816d084df3b3);
+            
+    
+            var circle_marker_8f73d4a5f4b6602decc66402376d0419 = L.circleMarker(
+                [59.912294, 30.260092],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e9e55ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_c7c6011f6bcb06ff99bd22f020e8c9cd = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_2fa8f0fece3fa840f431c9502307d6d1 = $(`<div id="html_2fa8f0fece3fa840f431c9502307d6d1" style="width: 100.0%; height: 100.0%;"><b>КП 68</b> · Этап 2<br>Гапсальская ул., д. 2<br><i>&quot;Дерево&quot; с указателями во дворе</i><br><b>Задание:</b> Перепешите название с самого нижнего указателя<br><details><summary>Правильный ответ</summary><b>Algiers</b></details><br>Взяли: <b>108/113</b> (96%)<br>Не взяли: L4153, L459, L4156, L438, L469</div>`)[0];
+                popup_c7c6011f6bcb06ff99bd22f020e8c9cd.setContent(html_2fa8f0fece3fa840f431c9502307d6d1);
+            
+        
+
+        circle_marker_8f73d4a5f4b6602decc66402376d0419.bindPopup(popup_c7c6011f6bcb06ff99bd22f020e8c9cd)
+        ;
+
+        
+    
+    
+            circle_marker_8f73d4a5f4b6602decc66402376d0419.bindTooltip(
+                `<div>
+                     КП 68: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_eb5ce4e545c8458fc53bdb73825c52ab = L.marker(
+                [59.912294, 30.260092],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_65b62d38f87ea6a26aea78a7298f7083 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e68\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_eb5ce4e545c8458fc53bdb73825c52ab.setIcon(div_icon_65b62d38f87ea6a26aea78a7298f7083);
+            
+    
+            var circle_marker_36a1b150606243198b19079a16f30248 = L.circleMarker(
+                [59.919858, 30.279533],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_e1d240a7e91d8705b11834a0365edf85 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_d8796f353fde44abd447d1d01e83d7aa = $(`<div id="html_d8796f353fde44abd447d1d01e83d7aa" style="width: 100.0%; height: 100.0%;"><b>КП 148</b> · Этап 2<br>Мясная ул., д. 18<br><i>Фасад, выходящий на улице</i><br><b>Задание:</b> Количество человеческих лиц<br><details><summary>Правильный ответ</summary><b>6</b></details><br>Взяли: <b>113/113</b> (100%)</div>`)[0];
+                popup_e1d240a7e91d8705b11834a0365edf85.setContent(html_d8796f353fde44abd447d1d01e83d7aa);
+            
+        
+
+        circle_marker_36a1b150606243198b19079a16f30248.bindPopup(popup_e1d240a7e91d8705b11834a0365edf85)
+        ;
+
+        
+    
+    
+            circle_marker_36a1b150606243198b19079a16f30248.bindTooltip(
+                `<div>
+                     КП 148: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_51e349601770b644057b7813b776e178 = L.marker(
+                [59.919858, 30.279533],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_59f4d713b3b58ea6480ff7875964af5e = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e148\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_51e349601770b644057b7813b776e178.setIcon(div_icon_59f4d713b3b58ea6480ff7875964af5e);
+            
+    
+            var circle_marker_2c00311e1cebf992c8965736d14e7ebc = L.circleMarker(
+                [59.915096, 30.272977],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#229b52ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_42a736aeb61f1882daa2decc20cbb1a2 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_32b1b4de6c20c64e0bb40ddf4912aa9d = $(`<div id="html_32b1b4de6c20c64e0bb40ddf4912aa9d" style="width: 100.0%; height: 100.0%;"><b>КП 164</b> · Этап 2<br>Наб. р. Фонтанки, д. 166<br><i>Соседнее здание, выходящее на Либавский пер. Охранная табличка на стене со стороны Либавского переулка</i><br><b>Задание:</b> Последние две цифры номера на нижней строке<br><details><summary>Правильный ответ</summary><b>45</b></details><br>Взяли: <b>111/113</b> (98%)<br>Не взяли: L449, L4132<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">В конце XVIII столетия на картах столицы был обозначен Екатерингофский проспект. В состав этой длинной дороги, которая вела из центра Петербурга к летнему дворцу Екатерины I, входили современные проспект Римского-Корсакова и улица Степана Разина. Небольшой переулок, параллельный Екатерингофскому проспекту к югу от Фонтанки, тоже назывался Екатерингофским. В 1859 году, как и многие дороги Нарвской части, этот переулок был переименован в честь города одной из балтийских губерний. Он стал Либавским. В современной Латвии этот город носит название Лиепая.</div></details></div>`)[0];
+                popup_42a736aeb61f1882daa2decc20cbb1a2.setContent(html_32b1b4de6c20c64e0bb40ddf4912aa9d);
+            
+        
+
+        circle_marker_2c00311e1cebf992c8965736d14e7ebc.bindPopup(popup_42a736aeb61f1882daa2decc20cbb1a2)
+        ;
+
+        
+    
+    
+            circle_marker_2c00311e1cebf992c8965736d14e7ebc.bindTooltip(
+                `<div>
+                     КП 164: 98%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_22776f50a2b1e4c9aa0ecae20155b35f = L.marker(
+                [59.915096, 30.272977],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_3847bf74f7b006670377086b96434df9 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e164\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_22776f50a2b1e4c9aa0ecae20155b35f.setIcon(div_icon_3847bf74f7b006670377086b96434df9);
+            
+    
+            var circle_marker_eeefc657ebfc38a5d1ff9365e42efd7b = L.circleMarker(
+                [59.921241, 30.283124],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_343e553444b0e3f5ac5d0214f4352ea6 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_4113f6ac376f9043252b95540bcc8acb = $(`<div id="html_4113f6ac376f9043252b95540bcc8acb" style="width: 100.0%; height: 100.0%;"><b>КП 40</b> · Этап 2<br>Псковская ул., д. 6<br><i>Сквер напротив дома. Памятник в сквере</i><br><b>Задание:</b> Количество клумб рядом с памятником<br><details><summary>Правильный ответ</summary><b>6</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L404, L4101, L4127<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">В конце XVIII века пустырь в конце Торговой улицы (современная Союза Печатников) назывался Козьим болотом. В 1832 году жители Малой Коломны начали сбор средств на строительство церкви на пустыре. Поводов для её возведения было два: избавление от эпидемии холеры и рождение младшего сына императора – великого князя Михаила Николаевича. Церковь Воскресения Христова и Михаила Архангела в Малой Коломне (таково её полное название) возводили на сваях — местность действительно была болотистой. Образовавшуюся вокруг площадь назвали Воскресенской — по церкви.<br><br>В 1932 году храм был взорван, а спустя двадцать лет и площадь по идеологическим причинам переименовали. Она получила название в честь изобретателя-самоучки Ивана Петровича Кулибина (хотя сам знаменитый механик здесь никогда не жил).<br><br>На илл.: Воскресенская церковь. 1900 год.<img src="https://img.runcity.org/storage/c/09/d6a3ee9933748a1598bbde462435109c.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_343e553444b0e3f5ac5d0214f4352ea6.setContent(html_4113f6ac376f9043252b95540bcc8acb);
+            
+        
+
+        circle_marker_eeefc657ebfc38a5d1ff9365e42efd7b.bindPopup(popup_343e553444b0e3f5ac5d0214f4352ea6)
+        ;
+
+        
+    
+    
+            circle_marker_eeefc657ebfc38a5d1ff9365e42efd7b.bindTooltip(
+                `<div>
+                     КП 40: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3c6851c2f321f9d7d0f4ed9941419277 = L.marker(
+                [59.921241, 30.283124],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_31d36de477d392c6ac76bbbdc8ae27b7 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e40\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_3c6851c2f321f9d7d0f4ed9941419277.setIcon(div_icon_31d36de477d392c6ac76bbbdc8ae27b7);
+            
+    
+            var circle_marker_ab4672ff0dfd439264c7a2d77da46782 = L.circleMarker(
+                [59.931481, 30.292415],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#32a056ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_9ddabef86a6f447e7d3712336e754c71 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_7c74f865667a85cdf6380f39859cb476 = $(`<div id="html_7c74f865667a85cdf6380f39859cb476" style="width: 100.0%; height: 100.0%;"><b>КП 25</b> · Этап 3<br>Пл. Труда. Подземное пространство.<br><i>Магазин &quot;Морские сувениры&quot;. Изображения маяков, размещенные на стенах по внешнему периметру магазина. Задний створный знак БКР</i><br><b>Задание:</b> Сумма цифр в написанных координатах<br><details><summary>Правильный ответ</summary><b>63</b></details><br>Взяли: <b>107/113</b> (95%)<br>Не взяли: L489, L464, L4130, L466, L470, L469</div>`)[0];
+                popup_9ddabef86a6f447e7d3712336e754c71.setContent(html_7c74f865667a85cdf6380f39859cb476);
+            
+        
+
+        circle_marker_ab4672ff0dfd439264c7a2d77da46782.bindPopup(popup_9ddabef86a6f447e7d3712336e754c71)
+        ;
+
+        
+    
+    
+            circle_marker_ab4672ff0dfd439264c7a2d77da46782.bindTooltip(
+                `<div>
+                     КП 25: 95%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a58515e37a5442aa3e979c6eb9f7c475 = L.marker(
+                [59.931481, 30.292415],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_237cf96373451b0e275d02082ae6364b = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e25\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_a58515e37a5442aa3e979c6eb9f7c475.setIcon(div_icon_237cf96373451b0e275d02082ae6364b);
+            
+    
+            var circle_marker_0a44106312718d1a0b331f3c0db04576 = L.circleMarker(
+                [59.925427, 30.294778],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_a2f7745979e82681be29cb3aeacf8bab = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_f30eecda524d0d504b4d671aa47f2261 = $(`<div id="html_f30eecda524d0d504b4d671aa47f2261" style="width: 100.0%; height: 100.0%;"><b>КП 33</b> · Этап 3<br>Ул. Декабристов, д. 34<br><i>Стена со стороны Крюкова канала. Пластиковая табличка с исторической справкой про рынок</i><br><b>Задание:</b> Фамилия на букву &quot;Д&quot;<br><details><summary>Правильный ответ</summary><b>Даймонд</b></details><br>Взяли: <b>113/113</b> (100%)<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Вторая сцена Мариинского театра появилась на берегу Крюкова канала в 2013 году — почти через полтора века после открытия исторического здания авторства Альберто Кавоса. Для нового здания освободили целый квартал между улицей Декабристов, Минским переулком, улицей Союза Печатников и Крюковым каналом. В 2005 году в квартале были снесены школа №243 1930-х годов постройки, доходный дом, Дворец культуры имени Первой пятилетки и и жилой дом с лавкой Литовского рынка (сам рынок сгорел в 1920-х годах, и лавка со стороны Крюкова канала оставалась единственным его сохранившимся фрагментом).<br><br>Изначально Мариинский-2 должен был строиться по проекту французского архитектора Доминика Перро. Тот предложил эффектный «золотой кокон» из металлических конструкций и стекла. На международный конкурс 2003 года поступило 11 проектов — от почти классических до совсем футуристических, и именно идея Перро стала победительницей. Позже этот концепт сменился проектом канадского бюро «Diamond &amp; Schmitt Architects» и петербургского «Конструкторского бюро высотных и подземных сооружений».<br><br>Светлый объём из юрского мрамора прорезан большими панорамными окнами: через них изнутри открывается вид на Крюков канал, а снаружи можно увидеть просторное фойе. Вечером здание словно начинает светиться изнутри. Вокруг основного зрительного зала устроено сложное многоуровневое пространство фойе, а сам зал рассчитан примерно на 2000 зрителей.<br><br>Яркий элемент экстерьера театра — стеклянный переход через Крюков канал, соединяющий новую сцену со старым зданием. Его построили для перемещения артистов, декораций и реквизита между двумя корпусами. Однако сначала он буквально упирался в стену исторической Мариинки: необходимый проём долго не согласовывали. Поэтому несколько лет переход выглядел как настоящий «мост в никуда» — соединить два здания удалось только в 2015 году.<br><br>На илл.:<br><br>Литовский рынок (со стороны Офицерской улицы и Минского переулка). Начало XX века.<img src="https://img.runcity.org/storage/2/49/3032ffd0dec57c386ac56c608a151492.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_a2f7745979e82681be29cb3aeacf8bab.setContent(html_f30eecda524d0d504b4d671aa47f2261);
+            
+        
+
+        circle_marker_0a44106312718d1a0b331f3c0db04576.bindPopup(popup_a2f7745979e82681be29cb3aeacf8bab)
+        ;
+
+        
+    
+    
+            circle_marker_0a44106312718d1a0b331f3c0db04576.bindTooltip(
+                `<div>
+                     КП 33: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_07907c60b0fb1fb5e7a25e31b65b28e4 = L.marker(
+                [59.925427, 30.294778],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_1a8c2d11d89fff8fc302547711e14944 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e33\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_07907c60b0fb1fb5e7a25e31b65b28e4.setIcon(div_icon_1a8c2d11d89fff8fc302547711e14944);
+            
+    
+            var circle_marker_2f1b8488c983d7ddb20ded2f30cb4929 = L.circleMarker(
+                [59.927021, 30.278736],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1e9951ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_bf09eb371fcb903c6bb2b7a5f94c99c9 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_9697ff0deebb066f03b8492a4434ab00 = $(`<div id="html_9697ff0deebb066f03b8492a4434ab00" style="width: 100.0%; height: 100.0%;"><b>КП 38</b> · Этап 3<br>Матисов мост<br><i>Участок гранитной стены рядом с мостом. Одна из надписей про запрет остановки судов</i><br><b>Задание:</b> Расстояние под надписью &quot;No mooring&quot;<br><details><summary>Правильный ответ</summary><b>769 м</b></details><br>Взяли: <b>112/113</b> (99%)<br>Не взяли: L4132</div>`)[0];
+                popup_bf09eb371fcb903c6bb2b7a5f94c99c9.setContent(html_9697ff0deebb066f03b8492a4434ab00);
+            
+        
+
+        circle_marker_2f1b8488c983d7ddb20ded2f30cb4929.bindPopup(popup_bf09eb371fcb903c6bb2b7a5f94c99c9)
+        ;
+
+        
+    
+    
+            circle_marker_2f1b8488c983d7ddb20ded2f30cb4929.bindTooltip(
+                `<div>
+                     КП 38: 99%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9f17f5b3a3da9edac321d1c608b4b471 = L.marker(
+                [59.927021, 30.278736],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_fe3bcee5504dad5595a97f1eba45d4de = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e38\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_9f17f5b3a3da9edac321d1c608b4b471.setIcon(div_icon_fe3bcee5504dad5595a97f1eba45d4de);
+            
+    
+            var circle_marker_5bfb6ef3b60df08dff5792b9f42e7b91 = L.circleMarker(
+                [59.925142, 30.280189],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_e8c042a6868527b7cb1ec887688a55f0 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_a82633a736bb242e1f0df61a5d5128dc = $(`<div id="html_a82633a736bb242e1f0df61a5d5128dc" style="width: 100.0%; height: 100.0%;"><b>КП 39</b> · Этап 3<br>Наб. р. Пряжки, д. 3<br><i>Небольшая скульптурная композиция на скамейке через дорогу от дома</i><br><b>Задание:</b> Количество реек спинки скамейки<br><details><summary>Правильный ответ</summary><b>13</b></details><br>Взяли: <b>113/113</b> (100%)</div>`)[0];
+                popup_e8c042a6868527b7cb1ec887688a55f0.setContent(html_a82633a736bb242e1f0df61a5d5128dc);
+            
+        
+
+        circle_marker_5bfb6ef3b60df08dff5792b9f42e7b91.bindPopup(popup_e8c042a6868527b7cb1ec887688a55f0)
+        ;
+
+        
+    
+    
+            circle_marker_5bfb6ef3b60df08dff5792b9f42e7b91.bindTooltip(
+                `<div>
+                     КП 39: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_509160a0c94f9787358ded810c93b48b = L.marker(
+                [59.925142, 30.280189],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_c49066b30d648dae2b688def728d04d1 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e39\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_509160a0c94f9787358ded810c93b48b.setIcon(div_icon_c49066b30d648dae2b688def728d04d1);
+            
+    
+            var circle_marker_4ba69efb328bbcf40374f5ef73e07bdd = L.circleMarker(
+                [59.925126, 30.302253],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_08b3fa42543d39ea91bccecb6dd1c795 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_16b51cdc143c8b1f968e55e91c6191b1 = $(`<div id="html_16b51cdc143c8b1f968e55e91c6191b1" style="width: 100.0%; height: 100.0%;"><b>КП 46</b> · Этап 3<br>Наб. Канала Грибоедова, д. 102<br><i>Небольшая разрисованная табличка под адресной</i><br><b>Задание:</b> Слово над головой<br><details><summary>Правильный ответ</summary><b>Alfaqile</b></details><br>Взяли: <b>113/113</b> (100%)</div>`)[0];
+                popup_08b3fa42543d39ea91bccecb6dd1c795.setContent(html_16b51cdc143c8b1f968e55e91c6191b1);
+            
+        
+
+        circle_marker_4ba69efb328bbcf40374f5ef73e07bdd.bindPopup(popup_08b3fa42543d39ea91bccecb6dd1c795)
+        ;
+
+        
+    
+    
+            circle_marker_4ba69efb328bbcf40374f5ef73e07bdd.bindTooltip(
+                `<div>
+                     КП 46: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1953a4b0c994854686356033ac935e76 = L.marker(
+                [59.925126, 30.302253],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_378bdb11cb806b42432dc5f94c3391a8 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e46\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_1953a4b0c994854686356033ac935e76.setIcon(div_icon_378bdb11cb806b42432dc5f94c3391a8);
+            
+    
+            var circle_marker_8a8777ddd2513243670c4e4c8543c5ef = L.circleMarker(
+                [59.930443, 30.284701],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1e9951ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_f6a295deed86b79f201a2606e6b9ebbd = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_2b286c7adfd2ea05789e3db84b65c91f = $(`<div id="html_2b286c7adfd2ea05789e3db84b65c91f" style="width: 100.0%; height: 100.0%;"><b>КП 128</b> · Этап 3<br>Галерная ул., д. 60<br><i>Охранная табличка с информацией про дворец на стене рядом с воротами</i><br><b>Задание:</b> Последняя буква на третьей строчке снизу<br><details><summary>Правильный ответ</summary><b>й</b></details><br>Взяли: <b>112/113</b> (99%)<br>Не взяли: L470</div>`)[0];
+                popup_f6a295deed86b79f201a2606e6b9ebbd.setContent(html_2b286c7adfd2ea05789e3db84b65c91f);
+            
+        
+
+        circle_marker_8a8777ddd2513243670c4e4c8543c5ef.bindPopup(popup_f6a295deed86b79f201a2606e6b9ebbd)
+        ;
+
+        
+    
+    
+            circle_marker_8a8777ddd2513243670c4e4c8543c5ef.bindTooltip(
+                `<div>
+                     КП 128: 99%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_53b6069eaaaa75810cfaa742e14a55ec = L.marker(
+                [59.930443, 30.284701],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_39f423a67555ab28c07e593b2735388f = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e128\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_53b6069eaaaa75810cfaa742e14a55ec.setIcon(div_icon_39f423a67555ab28c07e593b2735388f);
+            
+    
+            var circle_marker_857e4034819ffc6a45e5e6eb65cfc3a3 = L.circleMarker(
+                [59.927847, 30.29043],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_894fec4620c82d21b8742e7ee15a9855 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_fa5ec5a9aed689a10948eb0490fe5968 = $(`<div id="html_fa5ec5a9aed689a10948eb0490fe5968" style="width: 100.0%; height: 100.0%;"><b>КП 135</b> · Этап 3<br>Наб. р. Мойки. Участок напротив арки Новой Голландии<br><i>Ворота дворца Вел. кн. Ксении Александровны. Основание одного из столбов. Цифры, написанные в зеленом прямоугольнике</i><br><b>Задание:</b> Три самые нижние цифры<br><details><summary>Правильный ответ</summary><b>290</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L436, L497, L4109<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Арка Новой Голландии появилась в XVIII веке как часть большого комплекса складов корабельного леса для Адмиралтейской верфи. Сам остров возник после прокладки Адмиралтейского и Крюкова каналов, которые были нужны для доставки материалов к верфи. По основной версии, название острова связано с «голландским» способом хранения древесины — брёвна здесь сушили и хранили вертикально. Каменные склады начали строить в 1765 году по проекту Саввы Ивановича Чевакинского, а фасады и знаменитую арку спроектировал французский архитектор Жан-Батист Валлен-Деламот.<br><br>Арка через проток, соединяющий внутренний бассейн Новой Голландии с Мойкой, стала центральным элементом фасада складского комплекса. С практической стороны, её конструкция должна была гасить давление брёвен, опиравшихся на торцевые стены складов. Кроме того, по изначальному замыслу, у комплекса должна была появиться и вторая арка – со стороны Крюкова канала, но этот проект так и не был реализован. Валлен-Деламот подготовил проект ещё в середине 1760-х годов, но из-за неточностей в расчётах его пришлось дорабатывать. Строительство началось в 1770 году и закончилось лишь спустя семь лет, причём уже в 1782 году началась реконструкция антамблемента, продлившаяся два года.<br><br>Монументальный портал со стороны Мойки выглядит особенно выразительно благодаря сочетанию красного кирпича и массивных гранитных колонн тосканского ордера. Полуциркульный проём арки украшен триглифами и изящной гирляндой и обрамлён небольшими колоннами, поставленными по берегам протока, ведущего во внутренний бассейн. Высота арки — 23 метра, а ширина пролёта — чуть более восьми метров. Сегодня арка является одним из символов Новой Голландии и одним из важнейших памятников раннего петербургского классицизма.<br><br>Андрей Ефимович Мартынов. Новая Голландия. 1820-е годы.<img src="https://img.runcity.org/storage/3/c9/6e60ac71de5d609f542d91366994fc93.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_894fec4620c82d21b8742e7ee15a9855.setContent(html_fa5ec5a9aed689a10948eb0490fe5968);
+            
+        
+
+        circle_marker_857e4034819ffc6a45e5e6eb65cfc3a3.bindPopup(popup_894fec4620c82d21b8742e7ee15a9855)
+        ;
+
+        
+    
+    
+            circle_marker_857e4034819ffc6a45e5e6eb65cfc3a3.bindTooltip(
+                `<div>
+                     КП 135: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_209a856bdbf554cf2cf84f16637f946e = L.marker(
+                [59.927847, 30.29043],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_c267d6eb4ca4bedfd0b44726e48d4f33 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e135\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_209a856bdbf554cf2cf84f16637f946e.setIcon(div_icon_c267d6eb4ca4bedfd0b44726e48d4f33);
+            
+    
+            var circle_marker_e6eab92fea2d342bc3b9690cc378517f = L.circleMarker(
+                [59.927461, 30.284522],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a9d54ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_15f02ab2fd84e2ffa25aef305d67ea3e = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_a283c4f4f0c8069363e2ef81c771a018 = $(`<div id="html_a283c4f4f0c8069363e2ef81c771a018" style="width: 100.0%; height: 100.0%;"><b>КП 137</b> · Этап 3<br>Ул. Писарева. Алексеевский сад<br><i>Спортивная площадка. Плакат с правилами эксплуатации</i><br><b>Задание:</b> Что имитирует степ-тренажер? (в ответ записать три слова)<br><details><summary>Правильный ответ</summary><b>подъем по ступенькам</b></details><br>Взяли: <b>109/113</b> (96%)<br>Не взяли: L452, L499, L4127, L4140<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">В 1883-1885 годах Максимилиан Егорович Месмахер перестроил особняк на набережной Мойки в дворец для великого князя Алексея Александровича. В 1885 году зодчий перепланировал и сад при дворце.<br><br>Четвёртый сын Александра II, Алексей Александрович, с рождения был зачислен в морской гвардейский экипаж. В 1857 году он получил звание мичмана — в семь лет. С десяти лет великий князь участвовал в плаваниях на военных кораблях. В 1871-1872 годах он путешествовал на фрегате «Светлана» в составе дипломатической эскадры в Северо-Американские Соединенные Штаты. В 1880 году Алексей Александрович стал членом Государственного совета и Главным начальником флота и Морского ведомства.<br><br>Место для дворца Главного начальника флота и Морского ведомства было подобрано неслучайно: поблизости располагались казармы Гвардейского морского экипажа, Адмиралтейские верфи и Новая Голландия. Работая над проектом Алексеевского дворца, Месмахер сохранил существовавшее ранее сочетание разновеликих объёмов особняка и дополнил его двумя башнями. Доминирующее положение в новой композиции заняла четырёхъярусная башня с шатровым верхом. Со стороны реки были обустроены два подъезда: Главный и Собственный. Главный был украшен картушем с гербом великого князя и фонарями на три светильника. На балюстрадах над подъездом было установлено десять бюстов. Собственный подъезд был скромнее: его украсили шесть бюстов.<br><br>После революции дворец был национализирован. В 1920-х годах его занимало Издательство Географического института. В 1960-х годах в здание переехал трест «Ленинградоргстрой». С 2006 года в здании дворца работает Санкт-Петербургский Дом музыки.<br><br>Строительство дворца повлекло за собой прокладку новой улицы — Алексеевской (в наши дни это улица Писарева). От неё высокой каменной стеной был отделён Собственный сад, разбитый перед южным фасадом дворца. Другой сад — парадный — был обращён к Мойке. Важнейшим элементом его художественного решения стала ограда, состоящая из декоративных копий и трезубцев и украшенная коронованной монограммой «АА».<br><br>Пейзажный Собственный сад оттенял разноплановое здание дворца. Сад полностью соответствовал своему названию: там даже хоронили собак великого князя. На местах захоронений были установлены скульптуры. Перед окнами кабинета Алексея Александровича — тоже по проекту Месмахера — был сооружён гранитный фонтан. Его реставрация была проведена в 2013 году.<br><br>На илл.: Сад дворца великого князя Алексея Александровича. Конец XIX века.<img src="https://img.runcity.org/storage/f/03/b714537adf8d51c4dd540be536c1d03f.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_15f02ab2fd84e2ffa25aef305d67ea3e.setContent(html_a283c4f4f0c8069363e2ef81c771a018);
+            
+        
+
+        circle_marker_e6eab92fea2d342bc3b9690cc378517f.bindPopup(popup_15f02ab2fd84e2ffa25aef305d67ea3e)
+        ;
+
+        
+    
+    
+            circle_marker_e6eab92fea2d342bc3b9690cc378517f.bindTooltip(
+                `<div>
+                     КП 137: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b360ff633ac4a601bb514957fb436d68 = L.marker(
+                [59.927461, 30.284522],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_129e3f2ce1f22f189a674f26fe4614ac = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e137\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_b360ff633ac4a601bb514957fb436d68.setIcon(div_icon_129e3f2ce1f22f189a674f26fe4614ac);
+            
+    
+            var circle_marker_8399d70f62ef06192d0ad4d935364de2 = L.circleMarker(
+                [59.923943, 30.300735],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_2e77482d45827a256813871c9f2f1c31 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_b6571de475bcbb6f9e02afee2a72fc3f = $(`<div id="html_b6571de475bcbb6f9e02afee2a72fc3f" style="width: 100.0%; height: 100.0%;"><b>КП 140</b> · Этап 3<br>Пр. Римского-Корсакова, д. 33<br><i>Табличка с QR-кодом, располагающаяся под адресной</i><br><b>Задание:</b> Четырехзначное число в ссылке<br><details><summary>Правильный ответ</summary><b>2612</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L438, L4127, L496<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Напротив указанного дома расположен Никольский сад, разбитый ещё в XVIII веке. В 1753-1762 годах в его центре по проекту архитектора Саввы Ивановича Чевакинского был построен Никольский морской собор, по которому сад и был назван.<br><br>Отдельно стоящая четырёхъярусная колокольня собора, завершенная высоким шпилем, была возведена в 1755-1758 годах. С 1870 года при Никольском соборе действовало благотворительное общество со школой, больницей, приютом и женской богадельней. После Октябрьской революции собор не был закрыт, а в 1941-1999 годах он и вовсе был кафедральным — на хорах собора даже жили Ленинградские митрополиты. Кроме сада, собор дал название Никольским площади, переулку, рынку, а также Старо- и Ново-Никольскому мостам.<br><br>На илл.:<br><br>Зинаида Серебрякова. Никольский собор. 1910 год.<img src="https://img.runcity.org/storage/5/c1/28089cb46c115282c300481d15bbdc15.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_2e77482d45827a256813871c9f2f1c31.setContent(html_b6571de475bcbb6f9e02afee2a72fc3f);
+            
+        
+
+        circle_marker_8399d70f62ef06192d0ad4d935364de2.bindPopup(popup_2e77482d45827a256813871c9f2f1c31)
+        ;
+
+        
+    
+    
+            circle_marker_8399d70f62ef06192d0ad4d935364de2.bindTooltip(
+                `<div>
+                     КП 140: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e8b2cf08d93eecca1cfbe966bff52b9d = L.marker(
+                [59.923943, 30.300735],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_9baa6d0ac2384e461b9ea7833978639a = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e140\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_e8b2cf08d93eecca1cfbe966bff52b9d.setIcon(div_icon_9baa6d0ac2384e461b9ea7833978639a);
+            
+    
+            var circle_marker_4dabb2cfdb60065ac2d17dd6db162e48 = L.circleMarker(
+                [59.921614, 30.290766],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#229b52ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_9293a42f81fb0862fc660b1cd27f13dc = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_beaf03eb98dd94d231924dbd6cbeb060 = $(`<div id="html_beaf03eb98dd94d231924dbd6cbeb060" style="width: 100.0%; height: 100.0%;"><b>КП 31</b> · Этап 4<br>Пр. Римского-Корсакова, д. 24<br><i>Сквер рядом с домом. Скульптурная композиция в сквере</i><br><b>Задание:</b> Фамилия на хлястике<br><details><summary>Правильный ответ</summary><b>Крьлов</b></details><br>Взяли: <b>111/113</b> (98%)<br>Не взяли: L4140, L4111<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Исидоровская церковь на проспекте Римского-Корсакова появилась благодаря петербургской общине православных эстонцев, сформировавшейся в Коломне в конце XIX века. Храм получил своё название в честь священномученика Исидора Юрьевского — эстонского православного священника XV века, погибшего за веру.<br><br>Сначала собственного храма у общины не было, и богослужения проходили в подвале утраченной Малоколоменской Воскресенской церкви (в наши дни на её месте — Воскресенский сквер). Инициатором строительства нового храма стал священник Павел Петрович Кульбуш (Платон). Он же основал благотворительную организацию общины — Православное русско-эстонское братство в честь священномученика Исидора Юрьевского. Проект церкви поручили члену Братства, молодому архитектору Александру Артемьевичу Полещуку. Первый взнос на строительство сделал Иоанн Кронштадтский. Позднее, в 1903 году, в его же присутствии была освящена временная эстонская церковь.<br><br>Строительство пятиглавой каменной церкви в русском стиле началось в том же году. Храм был вчерне достроен в 1907 году. Кроме основного здания храма, Полещук подготовил проект целого приходского комплекса со школой, общежитием, библиотекой и помещениями для собраний. Для богослужений внутри Исидоровской церкви были предусмотрены верхний храм с тремя приделами и нижняя церковь во имя Николая Чудотворца. Иконостасы были выполнены по рисункам самого Полещука. В 1910-х годах престолы были облицованы белым каррарским мрамором.<br><br>К 1911 году приход насчитывал более 2500 человек, причём службы проходили на русском и эстонском языках. После революции храм постепенно лишился прежней общины и в 1935 году был закрыт – его здание впоследствии использовали для светских нужд. В 1994 году церковь вернули верующим, и сегодня в ней вновь проходят богослужения.<br><br>На илл.:<br><br>Поднятие крестов на эстонскую православную церковь. Сентябрь 1906 года.<img src="https://img.runcity.org/storage/d/fc/b8043e5f096856074252de487b09dfcd.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_9293a42f81fb0862fc660b1cd27f13dc.setContent(html_beaf03eb98dd94d231924dbd6cbeb060);
+            
+        
+
+        circle_marker_4dabb2cfdb60065ac2d17dd6db162e48.bindPopup(popup_9293a42f81fb0862fc660b1cd27f13dc)
+        ;
+
+        
+    
+    
+            circle_marker_4dabb2cfdb60065ac2d17dd6db162e48.bindTooltip(
+                `<div>
+                     КП 31: 98%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5a73b6c42ecbc7837523f3739d6fb660 = L.marker(
+                [59.921614, 30.290766],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_0f14f854774e793ab1bc5e3674748c0c = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e31\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_5a73b6c42ecbc7837523f3739d6fb660.setIcon(div_icon_0f14f854774e793ab1bc5e3674748c0c);
+            
+    
+            var circle_marker_88b83c9ed1e60526ed06640cbaf32490 = L.circleMarker(
+                [59.917785, 30.291436],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_cdf9516b8ccca3de6247017b72f888b0 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_f75eaf1a01549b4a0e31d4a436cbbdf1 = $(`<div id="html_f75eaf1a01549b4a0e31d4a436cbbdf1" style="width: 100.0%; height: 100.0%;"><b>КП 42</b> · Этап 4<br>Ул. Лабутина, д. 16, к. 2<br><i>Фасад, выходящий на улицу. Надстройка в центре здания</i><br><b>Задание:</b> Какой предмет находится в центре между животными в верхней части надстройки?<br><details><summary>Правильный ответ</summary><b>якорь</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L4109, L4140, L4111</div>`)[0];
+                popup_cdf9516b8ccca3de6247017b72f888b0.setContent(html_f75eaf1a01549b4a0e31d4a436cbbdf1);
+            
+        
+
+        circle_marker_88b83c9ed1e60526ed06640cbaf32490.bindPopup(popup_cdf9516b8ccca3de6247017b72f888b0)
+        ;
+
+        
+    
+    
+            circle_marker_88b83c9ed1e60526ed06640cbaf32490.bindTooltip(
+                `<div>
+                     КП 42: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_83284b24078bbebb2a43f63c0cf5eb26 = L.marker(
+                [59.917785, 30.291436],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_50f3aaa9d9b34e05e04a74d9d1e53d7e = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e42\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_83284b24078bbebb2a43f63c0cf5eb26.setIcon(div_icon_50f3aaa9d9b34e05e04a74d9d1e53d7e);
+            
+    
+            var circle_marker_94980e580f73ae76feb0b5fb025d9648 = L.circleMarker(
+                [59.921763, 30.297554],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a9d54ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_c85336e989b017479b7b0af8e7adcbd4 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_dd0dd5d1a5738b2c68d42dc18cdfd970 = $(`<div id="html_dd0dd5d1a5738b2c68d42dc18cdfd970" style="width: 100.0%; height: 100.0%;"><b>КП 43</b> · Этап 4<br>Наб. Крюкова канала, д. 17<br><i>Корабль над входом</i><br><b>Задание:</b> Число полотнищ парусов (развернутых)<br><details><summary>Правильный ответ</summary><b>5</b></details><br>Взяли: <b>109/113</b> (96%)<br>Не взяли: L406, L4109, L4140, L4111</div>`)[0];
+                popup_c85336e989b017479b7b0af8e7adcbd4.setContent(html_dd0dd5d1a5738b2c68d42dc18cdfd970);
+            
+        
+
+        circle_marker_94980e580f73ae76feb0b5fb025d9648.bindPopup(popup_c85336e989b017479b7b0af8e7adcbd4)
+        ;
+
+        
+    
+    
+            circle_marker_94980e580f73ae76feb0b5fb025d9648.bindTooltip(
+                `<div>
+                     КП 43: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_47034de4d350b0bef19d385cfbb05d5a = L.marker(
+                [59.921763, 30.297554],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_f5d1b486f1e7fba3e9b3e5aadb9750a7 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e43\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_47034de4d350b0bef19d385cfbb05d5a.setIcon(div_icon_f5d1b486f1e7fba3e9b3e5aadb9750a7);
+            
+    
+            var circle_marker_406736bf789426fd130f7c3c579fb870 = L.circleMarker(
+                [59.918076, 30.304416],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a9d54ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_beadfed64548c8a326f6f86bdb48cf33 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_3e19f0382cbfa9070535dd385357305a = $(`<div id="html_3e19f0382cbfa9070535dd385357305a" style="width: 100.0%; height: 100.0%;"><b>КП 56</b> · Этап 4<br>Наб. р. Фонтанки, д. 130<br><i>Участок ограды рядом с домом. Почтовый ящик на внутренней стороне ограды</i><br><b>Задание:</b> Слова, написанные с заглавной буквы<br><details><summary>Правильный ответ</summary><b>Письма Дождю</b></details><br>Взяли: <b>109/113</b> (96%)<br>Не взяли: L4109, L4140, L4111, L4139</div>`)[0];
+                popup_beadfed64548c8a326f6f86bdb48cf33.setContent(html_3e19f0382cbfa9070535dd385357305a);
+            
+        
+
+        circle_marker_406736bf789426fd130f7c3c579fb870.bindPopup(popup_beadfed64548c8a326f6f86bdb48cf33)
+        ;
+
+        
+    
+    
+            circle_marker_406736bf789426fd130f7c3c579fb870.bindTooltip(
+                `<div>
+                     КП 56: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8993c9d0ef94ea040e1a6c8b65a71821 = L.marker(
+                [59.918076, 30.304416],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_bb9516febb648955bd3d0902aed8935c = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e56\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_8993c9d0ef94ea040e1a6c8b65a71821.setIcon(div_icon_bb9516febb648955bd3d0902aed8935c);
+            
+    
+            var circle_marker_b606a068c42749494bf83a3facdc0e15 = L.circleMarker(
+                [59.917581, 30.30217],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a9d54ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_f4a307b02406c345f52aed10cf50d60b = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_4f627bf0f070c959b210955021daeeb2 = $(`<div id="html_4f627bf0f070c959b210955021daeeb2" style="width: 100.0%; height: 100.0%;"><b>КП 57</b> · Этап 4<br>Красноармейский мост<br><i>Постамент на четной стороне набережной в створе моста.  Цепь перед постаментом</i><br><b>Задание:</b> Количество звеньев одного любого участка цепи между двух опор (заушины на опорах считать не надо)<br><details><summary>Правильный ответ</summary><b>13</b></details><br>Взяли: <b>109/113</b> (96%)<br>Не взяли: L4109, L4140, L4111, L4114</div>`)[0];
+                popup_f4a307b02406c345f52aed10cf50d60b.setContent(html_4f627bf0f070c959b210955021daeeb2);
+            
+        
+
+        circle_marker_b606a068c42749494bf83a3facdc0e15.bindPopup(popup_f4a307b02406c345f52aed10cf50d60b)
+        ;
+
+        
+    
+    
+            circle_marker_b606a068c42749494bf83a3facdc0e15.bindTooltip(
+                `<div>
+                     КП 57: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8a658c2319f009e99a64885047215608 = L.marker(
+                [59.917581, 30.30217],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_f705adca148dd368e55e72b4472d82f9 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e57\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_8a658c2319f009e99a64885047215608.setIcon(div_icon_f705adca148dd368e55e72b4472d82f9);
+            
+    
+            var circle_marker_4905072461bf4bdc38f41e748f3f726c = L.circleMarker(
+                [59.917202, 30.296211],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_5bf73d2e3bd2a18a3124f7079e177d51 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_fbc2a94b17a4489d4276c90948d72114 = $(`<div id="html_fbc2a94b17a4489d4276c90948d72114" style="width: 100.0%; height: 100.0%;"><b>КП 144</b> · Этап 4<br>Наб. р. Фонтанки, д. 155, лит. А<br><i>Пристройка к дому, в которой находится ремонт обуви. Часы на стене</i><br><b>Задание:</b> Марка часов, написанная непосредственно под числом 12<br><details><summary>Правильный ответ</summary><b>янтарь</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L4109, L4140, L4111</div>`)[0];
+                popup_5bf73d2e3bd2a18a3124f7079e177d51.setContent(html_fbc2a94b17a4489d4276c90948d72114);
+            
+        
+
+        circle_marker_4905072461bf4bdc38f41e748f3f726c.bindPopup(popup_5bf73d2e3bd2a18a3124f7079e177d51)
+        ;
+
+        
+    
+    
+            circle_marker_4905072461bf4bdc38f41e748f3f726c.bindTooltip(
+                `<div>
+                     КП 144: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a7aeb085b726c588cbf894cd4e70fc7b = L.marker(
+                [59.917202, 30.296211],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_b8e8844923f1ceb2f28203743d0dfa63 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e144\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_a7aeb085b726c588cbf894cd4e70fc7b.setIcon(div_icon_b8e8844923f1ceb2f28203743d0dfa63);
+            
+    
+            var circle_marker_99af0dc6510132820b4f54577cd99e00 = L.circleMarker(
+                [59.918014, 30.286656],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_d9c2713f8772ff66b954aa0ef4bc136c = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_373eb82ccbcba19a681843d82ec5ef2d = $(`<div id="html_373eb82ccbcba19a681843d82ec5ef2d" style="width: 100.0%; height: 100.0%;"><b>КП 241</b> · Этап 4<br>Садовая ул., д. 113/111<br><i>Лестница №4. Барельеф на стене над аркой над лошадьми</i><br><b>Задание:</b> Головной убор на барельефе<br><details><summary>Правильный ответ</summary><b>шлем</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L4109, L4140, L4111</div>`)[0];
+                popup_d9c2713f8772ff66b954aa0ef4bc136c.setContent(html_373eb82ccbcba19a681843d82ec5ef2d);
+            
+        
+
+        circle_marker_99af0dc6510132820b4f54577cd99e00.bindPopup(popup_d9c2713f8772ff66b954aa0ef4bc136c)
+        ;
+
+        
+    
+    
+            circle_marker_99af0dc6510132820b4f54577cd99e00.bindTooltip(
+                `<div>
+                     КП 241: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1259786cc9cd2b52c5c9f3c9e6e2b867 = L.marker(
+                [59.918014, 30.286656],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_49a99663aedce671cd76806f7d030a1e = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e241\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_1259786cc9cd2b52c5c9f3c9e6e2b867.setIcon(div_icon_49a99663aedce671cd76806f7d030a1e);
+            
+    
+            var circle_marker_de7e3f4c9c5a8946b77a961064724138 = L.circleMarker(
+                [59.9148, 30.296763],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_f245867bca8b99086138dc4bc2a05e0e = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_4f1b7c3926824b1ed620c34038a43c08 = $(`<div id="html_4f1b7c3926824b1ed620c34038a43c08" style="width: 100.0%; height: 100.0%;"><b>КП 55</b> · Этап 4<br>Лермонтовский пр., д. 43/1<br><i>Участок газона со флагштоками со стороны Лермонтовского пр.</i><br><b>Задание:</b> Количество клумб рядом со флагштоками<br><details><summary>Правильный ответ</summary><b>4</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L4109, L4140, L4111<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Гостиница «Советская» между набережной Фонтанки, Лермонтовским и Рижским проспектами была построена в 1963–1968 годах по проекту мастерской №5 института «Ленпроект» под руководством академика Евгения Адольфовича Левинсона. Кроме него в состав группы авторов входили архитекторы Вера Владимировна Ганкевич и Анатолий Исаакович Прибульский, а также инженер Пётр Филиппович Панфилов.<br><br>Высота главного девятнадцатиэтажного корпуса гостиницы составила 52 метра. Архитектура здания характерна для ленинградского модернизма 1960-х годов. Главный корпус отличается лаконичной прямоугольной формой и горизонтальными лентами окон, практически лишёнными декоративного оформления. К нему под прямым углом примыкает более протяжённый пятиэтажный корпус, обращённый в сторону Фонтанки. Стены здания облицованы белой мозаикой.<br><br>На момент строительства главный корпус «Советской» стал самым высоким зданием Ленинграда (его даже называли первым в городе небоскрёбом) и одной из главных новых доминант города. Его появление было особенно заметно в панораме Фонтанки, где до этого преобладала историческая застройка небольшой этажности. «Советская» же, подчёркнуто модернистское здание, оттеняется Петербургом XIX века.<br><br>Гостиница была рассчитана в том числе на приём иностранных туристов и после завершения строительства могла одновременно разместить 1713 гостей. Здесь работали ремонт и чистка одежды, телефон и телеграф, рестораны и кафе. На верхнем этаже находился бар, именуемый в народе «Шайба», с панорамным видом на город. При гостинице также работал магазин «Берёзка», где торговали за иностранную валюту и специальные чеки. Сегодня бывшая гостиница «Советская» известна как «Азимут Отель Санкт-Петербург».<br><br>На илл.:<br><br>Трамвай на Лермонтовском проспекте у гостиницы. 1967–1969 годы.<img src="https://img.runcity.org/storage/8/85/783e80901d2451d22eda8d0a7424a858.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_f245867bca8b99086138dc4bc2a05e0e.setContent(html_4f1b7c3926824b1ed620c34038a43c08);
+            
+        
+
+        circle_marker_de7e3f4c9c5a8946b77a961064724138.bindPopup(popup_f245867bca8b99086138dc4bc2a05e0e)
+        ;
+
+        
+    
+    
+            circle_marker_de7e3f4c9c5a8946b77a961064724138.bindTooltip(
+                `<div>
+                     КП 55: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_12264ef7a60e9243081c46538fb3af05 = L.marker(
+                [59.9148, 30.296763],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_bc9524aec7d0b58939af3a0d0b4073a7 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e55\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_12264ef7a60e9243081c46538fb3af05.setIcon(div_icon_bc9524aec7d0b58939af3a0d0b4073a7);
+            
+    
+            var circle_marker_cd13c9a1489316a860a8e43e0c92dcd4 = L.circleMarker(
+                [59.909761, 30.299992],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a9d54ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_1c569cc78b15dbb4ba2ef9429799cebc = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_5e1bcaca64e774585953bc661106e329 = $(`<div id="html_5e1bcaca64e774585953bc661106e329" style="width: 100.0%; height: 100.0%;"><b>КП 59</b> · Этап 5<br>Наб. Обводного канала, д. 169, стр. 1<br><i>Ближайший корпус с Лермонтовскому проспекту. Газон перед корпусом</i><br><b>Задание:</b> Количество кормушек<br><details><summary>Правильный ответ</summary><b>2</b></details><br>Взяли: <b>109/113</b> (96%)<br>Не взяли: L4127, L4109, L4140, L4111<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Провиантские магазины на Обводном канале были построены в 1819–1821 годах по проекту Василия Петровича Стасова для лейб-гвардии Измайловского полка. Магазинами в то время называли военные склады, предназначенные для хранения продовольствия. На Обводном планировалось разместить «35 тысяч кулей» провианта. За основу проекта Стасов взял Троицкие провиантские магазины авторства Фёдора Ивановича Демерцова, построенные в 1808 году (не сохранились).<br><br>Четыре двухэтажных корпуса расположены у южной стороны полкового плаца. Кроме непосредственно материальной задачи, магазины выполнили ещё и художественную, став частью оформления набережной Обводного канала. Выходящим на него строгим классическим фасадам придают парадный вид гладкие ризалиты и аттики.<br><br>В 1915-1916 годах два западных корпуса объединили и приспособили под манеж Николаевского кавалерийского училища. Соединил корпуса шестиколонный дорический портик под гладким фронтоном. Очередная реконструкция комплекса прошла в 1950-е годы – тогда, в частности, были изменены оконные проёмы.<br><br>Мстислав Валерианович Добужинский. Петербург. Обводный канал. 1902 год.<img src="https://img.runcity.org/storage/e/47/289d62d71984688f44739cc8ce94947e.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_1c569cc78b15dbb4ba2ef9429799cebc.setContent(html_5e1bcaca64e774585953bc661106e329);
+            
+        
+
+        circle_marker_cd13c9a1489316a860a8e43e0c92dcd4.bindPopup(popup_1c569cc78b15dbb4ba2ef9429799cebc)
+        ;
+
+        
+    
+    
+            circle_marker_cd13c9a1489316a860a8e43e0c92dcd4.bindTooltip(
+                `<div>
+                     КП 59: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_94a6ad86f3150f6b22d926d2c53ee392 = L.marker(
+                [59.909761, 30.299992],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_eca1be6fea4fbca7a21d78752b38604d = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e59\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_94a6ad86f3150f6b22d926d2c53ee392.setIcon(div_icon_eca1be6fea4fbca7a21d78752b38604d);
+            
+    
+            var circle_marker_a70938d1dc107d6b10b098ec95be5e93 = L.circleMarker(
+                [59.910789, 30.276338],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e9e55ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_f0e1296f86aafb91f6147ebd981398ab = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_4584f72ba2779f25a681eb17a70b5e13 = $(`<div id="html_4584f72ba2779f25a681eb17a70b5e13" style="width: 100.0%; height: 100.0%;"><b>КП 67</b> · Этап 5<br>Старо-Петергофский пр., д. 10<br><i>Окна первого этажа, выходящие на проспект</i><br><b>Задание:</b> Количество горящих сердечек в окнах отеля<br><details><summary>Правильный ответ</summary><b>1</b></details><br>Взяли: <b>108/113</b> (96%)<br>Не взяли: L450, L414, L4109, L4140, L4111</div>`)[0];
+                popup_f0e1296f86aafb91f6147ebd981398ab.setContent(html_4584f72ba2779f25a681eb17a70b5e13);
+            
+        
+
+        circle_marker_a70938d1dc107d6b10b098ec95be5e93.bindPopup(popup_f0e1296f86aafb91f6147ebd981398ab)
+        ;
+
+        
+    
+    
+            circle_marker_a70938d1dc107d6b10b098ec95be5e93.bindTooltip(
+                `<div>
+                     КП 67: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a48711e6c85c7a7468c0d0137dd8ad5c = L.marker(
+                [59.910789, 30.276338],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_2f3c85736882663cf3fd81373d78de87 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e67\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_a48711e6c85c7a7468c0d0137dd8ad5c.setIcon(div_icon_2f3c85736882663cf3fd81373d78de87);
+            
+    
+            var circle_marker_5a0e80ceb0b3cdeee0a4d05ed2317e19 = L.circleMarker(
+                [59.909493, 30.286616],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a9d54ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_daafd6e11413e9dfb739a3abaaebe6e3 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_01da572d09723e5049c4edd899850aca = $(`<div id="html_01da572d09723e5049c4edd899850aca" style="width: 100.0%; height: 100.0%;"><b>КП 69</b> · Этап 5<br>Наб. Обводного канала, д. 199-201<br><i>Участок стены рядом с частью вагона метро. Табличка на стене между вагоном и калиткой</i><br><b>Задание:</b> Надпись на английском языке<br><details><summary>Правильный ответ</summary><b>way out</b></details><br>Взяли: <b>109/113</b> (96%)<br>Не взяли: L4109, L4140, L4111, L496<br><details><summary>Историческая справка</summary><div style="max-height:260px;overflow:auto;font-size:12px">Современное название реки Таракановки известно с 1785 года, предположительно, от фамилии владельцев завода — Таракановых. Параллельно до 1849 года существовало и название Чечереновка, произошедшее, вероятно, от фамилии землевладельца Чичерина.<br><br>Некогда её русло шло от Фонтанки (исток находился у Старо-Калинкина моста) по современной улице Циолковского, пересекало русло Обводного канала в районе Таракановского моста. Затем на месте площади Стачек в Таракановку впадала небольшая река Тентелевка (Ольховка), а Таракановка шла дальше к Екатерингофу, отделяя его от материка.<br><br>В 1906 году участок от Фонтанки до Обводного канала был засыпан и превратился в Таракановскую улицу (сейчас она носит имя Константина Эдуардовича Циолковского). В 1920-х годах вместе с Тентелевкой был засыпан и участок от Обводного канала до Бумажного, а все мосты, кроме Молвинского, были разобраны.<br><br>На илл.:<br><br>Таракановка у Нарвских ворот. Начало XX века.<img src="https://img.runcity.org/storage/2/5a/055a2f896b30ffcabb41a18edc9225a2.jpg" style="max-width:100%;margin-top:6px"></div></details></div>`)[0];
+                popup_daafd6e11413e9dfb739a3abaaebe6e3.setContent(html_01da572d09723e5049c4edd899850aca);
+            
+        
+
+        circle_marker_5a0e80ceb0b3cdeee0a4d05ed2317e19.bindPopup(popup_daafd6e11413e9dfb739a3abaaebe6e3)
+        ;
+
+        
+    
+    
+            circle_marker_5a0e80ceb0b3cdeee0a4d05ed2317e19.bindTooltip(
+                `<div>
+                     КП 69: 96%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_240e8ad3a01243c563dfb162d9292b6f = L.marker(
+                [59.909493, 30.286616],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_d8f742bb0ef2106e5c6892a9c25602ae = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e69\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_240e8ad3a01243c563dfb162d9292b6f.setIcon(div_icon_d8f742bb0ef2106e5c6892a9c25602ae);
+            
+    
+            var circle_marker_54929a2507f78b4a64442ce8d63f9b73 = L.circleMarker(
+                [59.912447, 30.297375],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_bae385340313309640c05805fd7d379b = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_f46c14705a854ccf328b08cebd24b5da = $(`<div id="html_f46c14705a854ccf328b08cebd24b5da" style="width: 100.0%; height: 100.0%;"><b>КП 159</b> · Этап 5<br>Лермонтовский пр., д. 49, лит. А<br><i>Витрины заведения общественного питания</i><br><b>Задание:</b> Устройство, стоящее между гусем и лисой<br><details><summary>Правильный ответ</summary><b>вентилятор</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L4109, L4140, L4111</div>`)[0];
+                popup_bae385340313309640c05805fd7d379b.setContent(html_f46c14705a854ccf328b08cebd24b5da);
+            
+        
+
+        circle_marker_54929a2507f78b4a64442ce8d63f9b73.bindPopup(popup_bae385340313309640c05805fd7d379b)
+        ;
+
+        
+    
+    
+            circle_marker_54929a2507f78b4a64442ce8d63f9b73.bindTooltip(
+                `<div>
+                     КП 159: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_22b740bbc2f08a0f8fccbe776f668de2 = L.marker(
+                [59.912447, 30.297375],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_972cbd131d6e9cedaeaed9a7c4b18d67 = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e159\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_22b740bbc2f08a0f8fccbe776f668de2.setIcon(div_icon_972cbd131d6e9cedaeaed9a7c4b18d67);
+            
+    
+            var circle_marker_0ec4b08e5370200ca194796e3698fac8 = L.circleMarker(
+                [59.911464, 30.26971],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#269c53ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_7079bb2ea23e6089a34ca0c8ed9b84e3 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_7d91607db6977fcb0b7d604247b57ab6 = $(`<div id="html_7d91607db6977fcb0b7d604247b57ab6" style="width: 100.0%; height: 100.0%;"><b>КП 170</b> · Этап 5<br>Курляндская ул., д. 45<br><i>Окна первого этажа, выходящие на улицу. Решетка любого из окон</i><br><b>Задание:</b> Количество заостренных пик<br><details><summary>Правильный ответ</summary><b>6</b></details><br>Взяли: <b>110/113</b> (97%)<br>Не взяли: L4109, L4140, L4111</div>`)[0];
+                popup_7079bb2ea23e6089a34ca0c8ed9b84e3.setContent(html_7d91607db6977fcb0b7d604247b57ab6);
+            
+        
+
+        circle_marker_0ec4b08e5370200ca194796e3698fac8.bindPopup(popup_7079bb2ea23e6089a34ca0c8ed9b84e3)
+        ;
+
+        
+    
+    
+            circle_marker_0ec4b08e5370200ca194796e3698fac8.bindTooltip(
+                `<div>
+                     КП 170: 97%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_4ed790869d12df472e7d71eee3f09e59 = L.marker(
+                [59.911464, 30.26971],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_7584c9a50109e32cb28829e483c522ac = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e170\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_4ed790869d12df472e7d71eee3f09e59.setIcon(div_icon_7584c9a50109e32cb28829e483c522ac);
+            
+    
+            var circle_marker_3f8900398b161b5e65e2460ae61613be = L.circleMarker(
+                [59.91065, 30.268069],
+                {"bubblingMouseEvents": true, "color": "#333", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+        var popup_b76fb4dcf76dfd284e4445a539fcc022 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_e783a7acab331d9c0fb1124f8478447b = $(`<div id="html_e783a7acab331d9c0fb1124f8478447b" style="width: 100.0%; height: 100.0%;"><b>КП 499</b> · Этап 6<br>ул. Степана Разина, д. 8 А, вход на территорию строго через ворота с Курляндской ул. между домами 46 и 48<br><i>Площадка перед входом в лофт</i><br><b>Задание:</b> Сделайте селфи всей команды на фоне флагов Бегущего Города<br>Взяли: <b>113/113</b> (100%)</div>`)[0];
+                popup_b76fb4dcf76dfd284e4445a539fcc022.setContent(html_e783a7acab331d9c0fb1124f8478447b);
+            
+        
+
+        circle_marker_3f8900398b161b5e65e2460ae61613be.bindPopup(popup_b76fb4dcf76dfd284e4445a539fcc022)
+        ;
+
+        
+    
+    
+            circle_marker_3f8900398b161b5e65e2460ae61613be.bindTooltip(
+                `<div>
+                     КП 499: 100%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1e8b2cd4fbd521a03c5e71393233ea42 = L.marker(
+                [59.91065, 30.268069],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var div_icon_fa5d8c7342f8a3bf344963260a6424ed = L.divIcon({
+  "html": "\u003cdiv style=\"font:600 10px sans-serif;color:#222;text-shadow:0 0 2px #fff\"\u003e499\u003c/div\u003e",
+  "iconSize": [30, 12],
+  "iconAnchor": [-9, 6],
+  "className": "empty",
+});
+        
+    
+                marker_1e8b2cd4fbd521a03c5e71393233ea42.setIcon(div_icon_fa5d8c7342f8a3bf344963260a6424ed);
+            
+    
+            var marker_ec3b66ad2062ab3c0df12320d61f72fc = L.marker(
+                [59.910654, 30.268189],
+                {
+}
+            ).addTo(feature_group_84d8da9a16dc523913bb9f765491d99b);
+        
+    
+            var icon_af78c07e788b465c43443fe621f65216 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b819324c1dfc8bf1d9d211af3380784a = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_f2464b2cb2a646e743fac1b1b823192a = $(`<div id="html_f2464b2cb2a646e743fac1b1b823192a" style="width: 100.0%; height: 100.0%;"><b>КП 99</b> · Финиш<br>ул. Степана Разина, д. 8 А, вход на территорию строго через ворота с Курляндской ул. между домами 46 и 48</div>`)[0];
+                popup_b819324c1dfc8bf1d9d211af3380784a.setContent(html_f2464b2cb2a646e743fac1b1b823192a);
+            
+        
+
+        marker_ec3b66ad2062ab3c0df12320d61f72fc.bindPopup(popup_b819324c1dfc8bf1d9d211af3380784a)
+        ;
+
+        
+    
+    
+            marker_ec3b66ad2062ab3c0df12320d61f72fc.bindTooltip(
+                `<div>
+                     Финиш · КП 99
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ec3b66ad2062ab3c0df12320d61f72fc.setIcon(icon_af78c07e788b465c43443fe621f65216);
+            
+    
+            feature_group_84d8da9a16dc523913bb9f765491d99b.addTo(map_3f8a6a6382375899be5a1e0880f891d7);
+        
+    
+            L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
+                _getDisplayDateFormat: function(date){
+                    var newdate = new moment(date);
+                    console.log(newdate)
+                    return newdate.format("HH:mm");
+                }
+            });
+            map_3f8a6a6382375899be5a1e0880f891d7.timeDimension = L.timeDimension(
+                {
+                    period: "PT2M",
+                }
+            );
+            var timeDimensionControl = new L.Control.TimeDimensionCustom(
+                {
+  "position": "bottomleft",
+  "minSpeed": 0.1,
+  "maxSpeed": 20,
+  "autoPlay": false,
+  "loopButton": false,
+  "timeSliderDragUpdate": true,
+  "speedSlider": true,
+  "playerOptions": {
+  "transitionTime": 150,
+  "loop": false,
+  "startOver": true,
+},
+}
+            );
+            map_3f8a6a6382375899be5a1e0880f891d7.addControl(this.timeDimensionControl);
+
+            var geoJsonLayer = L.geoJson({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.27434, 59.901326]}, "properties": {"time": "1970-01-01T03:00:00", "popup": "L454 \u0414\u0410\u0422\u042c \u041c\u0430\u0445\u0443(\u0422\u041a \u041c\u0413\u0422\u0423) (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.267939, 59.910628]}, "properties": {"time": "1970-01-01T03:02:00", "popup": "L454 \u0414\u0410\u0422\u042c \u041c\u0430\u0445\u0443(\u0422\u041a \u041c\u0413\u0422\u0423) (\u043c\u0435\u0441\u0442\u043e 1)", "icon": "circle", "iconstyle": {"fillColor": "#e41a1c", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.27464, 59.900578]}, "properties": {"time": "2026-10-10T12:24:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274345, 59.900699]}, "properties": {"time": "2026-10-10T12:26:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274345, 59.900699]}, "properties": {"time": "2026-10-10T12:28:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274345, 59.900699]}, "properties": {"time": "2026-10-10T12:30:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274345, 59.900699]}, "properties": {"time": "2026-10-10T12:32:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274345, 59.900699]}, "properties": {"time": "2026-10-10T12:34:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.274345, 59.900699]}, "properties": {"time": "2026-10-10T12:36:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.275848, 59.902362]}, "properties": {"time": "2026-10-10T12:38:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.277206, 59.903263]}, "properties": {"time": "2026-10-10T12:40:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.277206, 59.903263]}, "properties": {"time": "2026-10-10T12:42:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.276889, 59.905589]}, "properties": {"time": "2026-10-10T12:44:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.276407, 59.906157]}, "properties": {"time": "2026-10-10T12:46:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.276407, 59.906157]}, "properties": {"time": "2026-10-10T12:48:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.276407, 59.906157]}, "properties": {"time": "2026-10-10T12:50:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.273305, 59.901741]}, "properties": {"time": "2026-10-10T12:52:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.269516, 59.902142]}, "properties": {"time": "2026-10-10T12:54:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.269516, 59.902142]}, "properties": {"time": "2026-10-10T12:56:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.265803, 59.902092]}, "properties": {"time": "2026-10-10T12:58:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.265803, 59.902092]}, "properties": {"time": "2026-10-10T13:00:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.261239, 59.901237]}, "properties": {"time": "2026-10-10T13:02:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.257902, 59.900957]}, "properties": {"time": "2026-10-10T13:04:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.256984, 59.901011]}, "properties": {"time": "2026-10-10T13:06:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.254709, 59.901886]}, "properties": {"time": "2026-10-10T13:08:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.255434, 59.902816]}, "properties": {"time": "2026-10-10T13:10:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.255434, 59.902816]}, "properties": {"time": "2026-10-10T13:12:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.255434, 59.902816]}, "properties": {"time": "2026-10-10T13:14:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.259654, 59.904203]}, "properties": {"time": "2026-10-10T13:16:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.259654, 59.904203]}, "properties": {"time": "2026-10-10T13:18:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.262292, 59.906352]}, "properties": {"time": "2026-10-10T13:20:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.262651, 59.906856]}, "properties": {"time": "2026-10-10T13:22:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.262651, 59.906856]}, "properties": {"time": "2026-10-10T13:24:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.262651, 59.906856]}, "properties": {"time": "2026-10-10T13:26:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.259179, 59.908917]}, "properties": {"time": "2026-10-10T13:28:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.256319, 59.90901]}, "properties": {"time": "2026-10-10T13:30:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253818, 59.909233]}, "properties": {"time": "2026-10-10T13:32:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253445, 59.909222]}, "properties": {"time": "2026-10-10T13:34:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253445, 59.909222]}, "properties": {"time": "2026-10-10T13:36:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:38:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:40:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:42:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:44:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:46:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:48:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:50:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:52:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:54:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.253251, 59.908938]}, "properties": {"time": "2026-10-10T13:56:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.252757, 59.908713]}, "properties": {"time": "2026-10-10T13:58:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.252049, 59.909419]}, "properties": {"time": "2026-10-10T14:00:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.250594, 59.910707]}, "properties": {"time": "2026-10-10T14:02:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.250594, 59.910707]}, "properties": {"time": "2026-10-10T14:04:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.250594, 59.910707]}, "properties": {"time": "2026-10-10T14:06:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.250594, 59.910707]}, "properties": {"time": "2026-10-10T14:08:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.258766, 59.91194]}, "properties": {"time": "2026-10-10T14:10:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.260007, 59.91239]}, "properties": {"time": "2026-10-10T14:12:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.261982, 59.912674]}, "properties": {"time": "2026-10-10T14:14:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.261982, 59.912674]}, "properties": {"time": "2026-10-10T14:16:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.261982, 59.912674]}, "properties": {"time": "2026-10-10T14:18:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.263906, 59.912986]}, "properties": {"time": "2026-10-10T14:20:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.263906, 59.912986]}, "properties": {"time": "2026-10-10T14:22:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.270366, 59.913085]}, "properties": {"time": "2026-10-10T14:24:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.270366, 59.913085]}, "properties": {"time": "2026-10-10T14:26:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.27299, 59.914818]}, "properties": {"time": "2026-10-10T14:28:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.27299, 59.914818]}, "properties": {"time": "2026-10-10T14:30:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.27754, 59.915694]}, "properties": {"time": "2026-10-10T14:32:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.278191, 59.915881]}, "properties": {"time": "2026-10-10T14:34:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.278191, 59.915881]}, "properties": {"time": "2026-10-10T14:36:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.278191, 59.915881]}, "properties": {"time": "2026-10-10T14:38:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.278522, 59.91888]}, "properties": {"time": "2026-10-10T14:40:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279598, 59.919632]}, "properties": {"time": "2026-10-10T14:42:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279598, 59.919632]}, "properties": {"time": "2026-10-10T14:44:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279598, 59.919632]}, "properties": {"time": "2026-10-10T14:46:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284491, 59.919728]}, "properties": {"time": "2026-10-10T14:48:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.283568, 59.920296]}, "properties": {"time": "2026-10-10T14:50:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282996, 59.920846]}, "properties": {"time": "2026-10-10T14:52:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282996, 59.920846]}, "properties": {"time": "2026-10-10T14:54:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282996, 59.920846]}, "properties": {"time": "2026-10-10T14:56:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282996, 59.920846]}, "properties": {"time": "2026-10-10T14:58:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282996, 59.920846]}, "properties": {"time": "2026-10-10T15:00:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282996, 59.920846]}, "properties": {"time": "2026-10-10T15:02:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282996, 59.920846]}, "properties": {"time": "2026-10-10T15:04:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.282996, 59.920846]}, "properties": {"time": "2026-10-10T15:06:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.281569, 59.922925]}, "properties": {"time": "2026-10-10T15:08:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.281569, 59.922925]}, "properties": {"time": "2026-10-10T15:10:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.280073, 59.92517]}, "properties": {"time": "2026-10-10T15:12:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.280002, 59.925352]}, "properties": {"time": "2026-10-10T15:14:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279058, 59.92712]}, "properties": {"time": "2026-10-10T15:16:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279744, 59.927505]}, "properties": {"time": "2026-10-10T15:18:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.279744, 59.927505]}, "properties": {"time": "2026-10-10T15:20:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.281948, 59.928316]}, "properties": {"time": "2026-10-10T15:22:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.283035, 59.927693]}, "properties": {"time": "2026-10-10T15:24:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284042, 59.927249]}, "properties": {"time": "2026-10-10T15:26:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284338, 59.927699]}, "properties": {"time": "2026-10-10T15:28:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284338, 59.927699]}, "properties": {"time": "2026-10-10T15:30:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284338, 59.927699]}, "properties": {"time": "2026-10-10T15:32:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284664, 59.930419]}, "properties": {"time": "2026-10-10T15:34:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284847, 59.930578]}, "properties": {"time": "2026-10-10T15:36:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284847, 59.930578]}, "properties": {"time": "2026-10-10T15:38:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.284847, 59.930578]}, "properties": {"time": "2026-10-10T15:40:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292364, 59.931473]}, "properties": {"time": "2026-10-10T15:42:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292364, 59.931473]}, "properties": {"time": "2026-10-10T15:44:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292364, 59.931473]}, "properties": {"time": "2026-10-10T15:46:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.293066, 59.929929]}, "properties": {"time": "2026-10-10T15:48:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.293066, 59.929929]}, "properties": {"time": "2026-10-10T15:50:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.293223, 59.927574]}, "properties": {"time": "2026-10-10T15:52:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290806, 59.927748]}, "properties": {"time": "2026-10-10T15:54:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.291959, 59.927655]}, "properties": {"time": "2026-10-10T15:56:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292329, 59.927684]}, "properties": {"time": "2026-10-10T15:58:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292722, 59.925756]}, "properties": {"time": "2026-10-10T16:00:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292811, 59.925585]}, "properties": {"time": "2026-10-10T16:02:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292811, 59.925585]}, "properties": {"time": "2026-10-10T16:04:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.292811, 59.925585]}, "properties": {"time": "2026-10-10T16:06:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.294763, 59.925616]}, "properties": {"time": "2026-10-10T16:08:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.294763, 59.925616]}, "properties": {"time": "2026-10-10T16:10:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.294763, 59.925616]}, "properties": {"time": "2026-10-10T16:12:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300522, 59.925792]}, "properties": {"time": "2026-10-10T16:14:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300522, 59.925792]}, "properties": {"time": "2026-10-10T16:16:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300522, 59.925792]}, "properties": {"time": "2026-10-10T16:18:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302142, 59.925148]}, "properties": {"time": "2026-10-10T16:20:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302142, 59.925148]}, "properties": {"time": "2026-10-10T16:22:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300244, 59.923824]}, "properties": {"time": "2026-10-10T16:24:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.299551, 59.923497]}, "properties": {"time": "2026-10-10T16:26:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.299551, 59.923497]}, "properties": {"time": "2026-10-10T16:28:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300723, 59.923122]}, "properties": {"time": "2026-10-10T16:30:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300723, 59.923122]}, "properties": {"time": "2026-10-10T16:32:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300723, 59.923122]}, "properties": {"time": "2026-10-10T16:34:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300723, 59.923122]}, "properties": {"time": "2026-10-10T16:36:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300723, 59.923122]}, "properties": {"time": "2026-10-10T16:38:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300723, 59.923122]}, "properties": {"time": "2026-10-10T16:40:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297412, 59.922217]}, "properties": {"time": "2026-10-10T16:42:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297998, 59.921542]}, "properties": {"time": "2026-10-10T16:44:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297303, 59.921242]}, "properties": {"time": "2026-10-10T16:46:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297303, 59.921242]}, "properties": {"time": "2026-10-10T16:48:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297303, 59.921242]}, "properties": {"time": "2026-10-10T16:50:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290622, 59.92152]}, "properties": {"time": "2026-10-10T16:52:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.289264, 59.921288]}, "properties": {"time": "2026-10-10T16:54:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.288897, 59.921232]}, "properties": {"time": "2026-10-10T16:56:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.287842, 59.919587]}, "properties": {"time": "2026-10-10T16:58:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.288135, 59.918686]}, "properties": {"time": "2026-10-10T17:00:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.286503, 59.917891]}, "properties": {"time": "2026-10-10T17:02:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.288093, 59.917655]}, "properties": {"time": "2026-10-10T17:04:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.288448, 59.917711]}, "properties": {"time": "2026-10-10T17:06:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.291441, 59.917899]}, "properties": {"time": "2026-10-10T17:08:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.293736, 59.918362]}, "properties": {"time": "2026-10-10T17:10:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.293736, 59.918362]}, "properties": {"time": "2026-10-10T17:12:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.293736, 59.918362]}, "properties": {"time": "2026-10-10T17:14:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.295503, 59.916974]}, "properties": {"time": "2026-10-10T17:16:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.296925, 59.917262]}, "properties": {"time": "2026-10-10T17:18:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.29816, 59.917618]}, "properties": {"time": "2026-10-10T17:20:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.30191, 59.917885]}, "properties": {"time": "2026-10-10T17:22:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302413, 59.917718]}, "properties": {"time": "2026-10-10T17:24:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.304547, 59.918117]}, "properties": {"time": "2026-10-10T17:26:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.304547, 59.918117]}, "properties": {"time": "2026-10-10T17:28:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302415, 59.917621]}, "properties": {"time": "2026-10-10T17:30:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.30205, 59.917564]}, "properties": {"time": "2026-10-10T17:32:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.30205, 59.917564]}, "properties": {"time": "2026-10-10T17:34:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297166, 59.915795]}, "properties": {"time": "2026-10-10T17:36:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297006, 59.914874]}, "properties": {"time": "2026-10-10T17:38:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297212, 59.914739]}, "properties": {"time": "2026-10-10T17:40:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297383, 59.91271]}, "properties": {"time": "2026-10-10T17:42:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297617, 59.9128]}, "properties": {"time": "2026-10-10T17:44:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.29792, 59.911539]}, "properties": {"time": "2026-10-10T17:46:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300919, 59.91155]}, "properties": {"time": "2026-10-10T17:48:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300919, 59.91155]}, "properties": {"time": "2026-10-10T17:50:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300919, 59.91155]}, "properties": {"time": "2026-10-10T17:52:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300919, 59.91155]}, "properties": {"time": "2026-10-10T17:54:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.300919, 59.91155]}, "properties": {"time": "2026-10-10T17:56:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T17:58:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:00:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:02:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:04:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:06:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:08:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:10:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:12:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:14:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:16:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:18:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:20:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:22:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:24:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:26:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:28:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:30:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.302098, 59.911386]}, "properties": {"time": "2026-10-10T18:32:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.299665, 59.91161]}, "properties": {"time": "2026-10-10T18:34:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297518, 59.912039]}, "properties": {"time": "2026-10-10T18:36:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297808, 59.911312]}, "properties": {"time": "2026-10-10T18:38:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.297835, 59.909824]}, "properties": {"time": "2026-10-10T18:40:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.299717, 59.909753]}, "properties": {"time": "2026-10-10T18:42:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.299336, 59.909734]}, "properties": {"time": "2026-10-10T18:44:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.295496, 59.909393]}, "properties": {"time": "2026-10-10T18:46:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.290268, 59.909421]}, "properties": {"time": "2026-10-10T18:48:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.289143, 59.909429]}, "properties": {"time": "2026-10-10T18:50:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.286561, 59.909566]}, "properties": {"time": "2026-10-10T18:52:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.286561, 59.909566]}, "properties": {"time": "2026-10-10T18:54:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.286561, 59.909566]}, "properties": {"time": "2026-10-10T18:56:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.286561, 59.909566]}, "properties": {"time": "2026-10-10T18:58:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.286561, 59.909566]}, "properties": {"time": "2026-10-10T19:00:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.276598, 59.91145]}, "properties": {"time": "2026-10-10T19:02:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.276598, 59.91145]}, "properties": {"time": "2026-10-10T19:04:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.276598, 59.91145]}, "properties": {"time": "2026-10-10T19:06:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.269805, 59.911511]}, "properties": {"time": "2026-10-10T19:08:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.268238, 59.911243]}, "properties": {"time": "2026-10-10T19:10:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.268199, 59.910874]}, "properties": {"time": "2026-10-10T19:12:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.267073, 59.910593]}, "properties": {"time": "2026-10-10T19:14:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.267073, 59.910593]}, "properties": {"time": "2026-10-10T19:16:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [30.267136, 59.910577]}, "properties": {"time": "2026-10-10T19:18:00", "popup": "L4123 Jeuje\u043d\u0438 (\u043c\u0435\u0441\u0442\u043e 24)", "icon": "circle", "iconstyle": {"fillColor": "#377eb8", "fillOpacity": 0.9, "stroke": true, "color": "#fff", "weight": 1, "radius": 6}}}]}, {
+                    pointToLayer: function (feature, latLng) {
+                        if (feature.properties.icon == 'marker') {
+                            if(feature.properties.iconstyle){
+                                return new L.Marker(latLng, {
+                                    icon: L.icon(feature.properties.iconstyle)});
+                            }
+                            //else
+                            return new L.Marker(latLng);
+                        }
+                        if (feature.properties.icon == 'circle') {
+                            if (feature.properties.iconstyle) {
+                                return new L.circleMarker(latLng, feature.properties.iconstyle)
+                                };
+                            //else
+                            return new L.circleMarker(latLng);
+                        }
+                        //else
+
+                        return new L.Marker(latLng);
+                    },
+                    style: function (feature) {
+                        return feature.properties.style;
+                    },
+                    onEachFeature: function(feature, layer) {
+                        if (feature.properties.popup) {
+                        layer.bindPopup(feature.properties.popup);
+                        }
+                        if (feature.properties.tooltip) {
+                        layer.bindTooltip(feature.properties.tooltip);
+                        }
+                    }
+                })
+
+            var timestamped_geo_json_259ff77fa93c2eae3dfdc55ad4c16df0 = L.timeDimension.layer.geoJson(
+                geoJsonLayer,
+                {
+                    updateTimeDimension: true,
+                    addlastPoint: false,
+                    duration: "PT20M",
+                }
+            ).addTo(map_3f8a6a6382375899be5a1e0880f891d7);
+        
+</script>
+</html>
